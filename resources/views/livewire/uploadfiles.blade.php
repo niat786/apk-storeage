@@ -45,6 +45,8 @@
             </div>
         </div>
     </div>
+@guest
+
 
     <div class="flex justify-start p-6 bg-white border-b border-gray-200">
 
@@ -94,5 +96,6 @@
             </div>
         </div>
     </div>
+    @endguest
 
 </div>
