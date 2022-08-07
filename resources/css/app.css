@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button {
+    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-indigo-700/30 bg-gradient-to-tr from-indigo-600 to-indigo-500
+}
+.button-white {
+    @apply px-3 py-2 my-2 text-purple-700 bg-white hover:bg-gray-100 rounded shadow-md
+}
+.input-field {
+    @apply w-full p-3 my-4 border-gray-300 rounded-lg md:w-1/2 dark:border-gray-500 hover:ring-0 focus:ring-0
+}
+.error-message {
+    @apply my-2 text-rose-600
+}
+#pagination  p{
+    @apply mx-5
+}
