@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.general')
 @section('content')
 <main class="flex flex-col items-center justify-center w-full h-screen bg-white">
 	<h1 class="font-extrabold tracking-widest text-indigo-700 text-9xl">404</h1>

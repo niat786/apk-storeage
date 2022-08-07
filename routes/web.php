@@ -26,12 +26,12 @@ Route::get('/', function () {
 });
 
 Route::get('find-b2-keys', function () {
-    return view('find-b2-keys');
+    return view('find-b2-keys')->middleware('auth');
 });
 
-Route::match(['GET', 'POST'], 'connect-b2', [B2Controller::class, 'index'])->name('connectb2');
+Route::match(['GET', 'POST'], 'connect-b2', [B2Controller::class, 'index'])->name('connectb2')->middleware('auth');
 
-Route::match(['GET', 'POST'], 'add-domain-name', [DomainController::class, 'index'])->name('add-domain-name');
+Route::match(['GET', 'POST'], 'add-domain-name', [DomainController::class, 'index'])->name('add-domain-name')->middleware('auth');
 
 Route::get('/upload', function () {
     return view('upload-files');
