@@ -232,7 +232,7 @@
         </div>
         <hr class="my-6 border-gray-500 sm:mx-auto dark:border-gray-700 lg:my-8">
         <span class="block text-sm text-gray-400 sm:text-center">© 2022 <a
-                href="https://apkeve.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+                href="https://apkeve.com/" class="hover:underline">ApkEve™</a>. All Rights Reserved.
         </span>
     </footer>
 
