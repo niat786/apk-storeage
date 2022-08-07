@@ -26,7 +26,7 @@
     <div>
         <nav  x-data="{show_mobile_menu: false}" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="https://flowbite.com/" class="flex items-center text-white">
+                <a href="https://apkeve.com/" class="flex items-center text-white">
                     <img src="{{asset('/images/logo.svg')}}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo">
                     <span class="self-center text-xl font-semibold text-white whitespace-nowrap">Files</span>
                 </a>
@@ -211,7 +211,7 @@
 
     <footer class="p-4 bg-gray-900 shadow md:px-6 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
-            <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
+            <a href="https://apkeve.com/" class="flex items-center mb-4 sm:mb-0">
                 <img src="{{asset('/images/logo.svg')}}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo">
                 <span class="self-center text-2xl font-semibold text-gray-400 whitespace-nowrap">Files</span>
             </a>
@@ -232,7 +232,7 @@
         </div>
         <hr class="my-6 border-gray-500 sm:mx-auto dark:border-gray-700 lg:my-8">
         <span class="block text-sm text-gray-400 sm:text-center">© 2022 <a
-                href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+                href="https://apkeve.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
         </span>
     </footer>
 
