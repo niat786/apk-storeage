@@ -72,7 +72,8 @@ if ($file_content  === false) {
 }else {
 
     if (file_put_contents($file_name, $file_content)) {
-        $b2_keys = DB::table('b2_accounts')->where('id', 1)->where('user_id', $this->user_id)->first();
+        $b2_id = $this->B2AccountID ?? $this->B2Accounts[0]->id;
+        $b2_keys = DB::table('b2_accounts')->where('id', $b2_id)->where('user_id', $this->user_id)->first();
 
         $client = new Client($b2_keys->keyid, $b2_keys->applicationkey);
         $file = $client->upload([
