@@ -26,8 +26,8 @@ Route::get('/', function () {
 });
 
 Route::get('find-b2-keys', function () {
-    return view('find-b2-keys')->middleware('auth');
-});
+    return view('find-b2-keys');
+})->middleware('auth');
 
 Route::match(['GET', 'POST'], 'connect-b2', [B2Controller::class, 'index'])->name('connectb2')->middleware('auth');
 

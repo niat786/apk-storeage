@@ -71,7 +71,9 @@ public $B2Accounts;
 
     $name = $this->file->getClientOriginalName();
 
-    $b2_keys = DB::table('b2_accounts')->where('id', 1)->where('user_id', $this->user_id)->first();
+    $b2_id = $this->B2AccountID ?? $this->B2Accounts[0]->id;
+
+    $b2_keys = DB::table('b2_accounts')->where('id', $b2_id)->where('user_id', $this->user_id)->first();
 
         // $temp_file_name = explode('?expires', basename($this->file->temporaryUrl()))[0];
 
