@@ -105,7 +105,7 @@ if ($file_content  === false) {
 
 
         $domain_info = Domain::where('id', $this->domainID)->where('user_id', $this->user_id)->first();
-        $d_link = 'https://'.$domain_info->subdomain.'.'.$domain_info->name.'/'.$file_name;
+        $d_link = 'https://'.$domain_info->subdomain.'.'.$domain_info->name.'/file/'.$this->B2Accounts[0]->bucket_name.'/'.$file_name;
 
         $filemeta = new FileMeta;
 
