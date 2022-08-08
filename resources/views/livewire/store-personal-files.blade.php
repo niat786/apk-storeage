@@ -19,8 +19,8 @@
 
                 <select wire:model="category" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0">
 
-                    <option value="">Category</option>
-                    <option value="apk">Apps</option>
+                    <option value="">Show All</option>
+                    <option value="app">Apps</option>
                     <option value="pdf">PDF Files</option>
                     <option value="zip">ZIP Files</option>
                     <option value="txt">TXT Files</option>

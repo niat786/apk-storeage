@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\FileMeta;
+use Auth;
 
 
 class StorePublicFiles extends Component
@@ -26,9 +27,21 @@ class StorePublicFiles extends Component
             return view('livewire.store-personal-files', ['all_files'=> $files]);
         }
 
-        if ($this->category) {
-            $files = FileMeta::where('category', $this->category)->orderBy('name', 'asc')->paginate(15);
-        return view('livewire.store-personal-files', ['all_files'=> $files]);
+
+            if ($this->category) {
+                $images = ['jpg', 'jpeg', 'bmp', 'png', 'webp'];
+                $apps = ['exe', 'apk', 'dmg', 'msi', 'ipa'];
+                if ($this->category == 'image') {
+                    $files = FileMeta::where('user_id', Auth::User()->id)->where('b2_account_type', 'public')->whereIn('extension', $images)->orderBy('name', 'asc')->paginate(15);
+
+                }elseif($this->category == 'app'){
+                    $files = FileMeta::where('user_id', Auth::User()->id)->where('b2_account_type', 'public')->whereIn('extension', $apps)->orderBy('name', 'asc')->paginate(15);
+
+                }else{
+
+                    $files = FileMeta::where('user_id', Auth::User()->id)->where('b2_account_type', 'public')->where('extension', $this->category)->orderBy('name', 'asc')->paginate(15);
+                }
+            return view('livewire.store-personal-files', ['all_files'=> $files]);
         }
 
 
