@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use BackblazeB2\Client;
 use BackblazeB2\Bucket;
-use App\Models\Domain;
-use App\Models\B2Account;
+// use App\Models\Domain;
+// use App\Models\B2Account;
 use Auth;
 use App\Models\FileMeta;
 use DB;
@@ -26,8 +26,8 @@ class UploadOnlineFile extends Component
     {
         $this->user_id = Auth::User()->id;
 
-        $this->domains_list = Domain::where('user_id', $this->user_id)->get();
-        $this->B2Accounts = B2Account::where('user_id', $this->user_id)->get();
+        $this->domains_list = DB::table('domains')->where('user_id', $this->user_id)->get();
+        $this->B2Accounts = DB::table('b2_accounts')->where('user_id', $this->user_id)->get();
 
         if($this->B2Accounts->count() == 0) {
             session()->flash('message','You need to add a backblaze account to upload files');
@@ -51,7 +51,6 @@ class UploadOnlineFile extends Component
 
     public function save() {
 
-
         $messages = ['file.url'=> 'Please provide a valid URL',
         'file.required'=> 'Please provide a File Download Link'];
 
@@ -72,7 +71,7 @@ if ($file_content  === false) {
 }else {
 
     if (file_put_contents($file_name, $file_content)) {
-        $b2_id = $this->B2AccountID ?? $this->B2Accounts[0]->id;
+        $b2_id = $this->B2AccountID ?? $this->B2Accounts[0]['id'];
         $b2_keys = DB::table('b2_accounts')->where('id', $b2_id)->where('user_id', $this->user_id)->first();
 
         $client = new Client($b2_keys->keyid, $b2_keys->applicationkey);
@@ -96,7 +95,7 @@ if ($file_content  === false) {
         // delete downloaded file from public folder
         File::delete($file_name);
         if (!$this->domainID) {
-            $this->domainID = $this->domains_list[0]->id;
+            $this->domainID = $this->domains_list[0]['id'];
         }
 
         $ext = explode('.', $file_name);
@@ -104,18 +103,18 @@ if ($file_content  === false) {
 
 
 
-        $domain_info = Domain::where('id', $this->domainID)->where('user_id', $this->user_id)->first();
-        $d_link = 'https://'.$domain_info->subdomain.'.'.$domain_info->name.'/file/'.$this->B2Accounts[0]->bucket_name.'/'.$file_name;
+        $domain_info = DB::table('domains')->where('id', $this->domainID)->where('user_id', $this->user_id)->first();
+        $d_link = 'https://'.$domain_info->subdomain.'.'.$domain_info->name.'/file/'.$this->B2Accounts[0]['bucket_name'].'/'.$file_name;
 
         $filemeta = new FileMeta;
 
         $filemeta->name = $file_name;
         $filemeta->user_id = $this->user_id;
-        $filemeta->domain_id = $this->domainID ?? $this->domains_list[0]->id;
+        $filemeta->domain_id = $this->domainID ?? $this->domains_list[0]['id'];
         $filemeta->download_link = $d_link;
         $filemeta->size = $file_size;
         $filemeta->extension = $extension;
-        $filemeta->b2_account_id = $this->B2AccountID ?? $this->B2Accounts[0]->id;
+        $filemeta->b2_account_id = $this->B2AccountID ?? $this->B2Accounts[0]['id'];
 
         $filemeta->save();
 
