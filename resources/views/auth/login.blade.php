@@ -37,7 +37,7 @@
                     <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif --}}
+                @endif &nbsp; --}}
                 <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('register') }}">
                     {{ __('Create Account') }}
                 </a>

@@ -39,20 +39,21 @@ public $B2Accounts;
             session()->flash('message','You need to add a backblaze account to upload files');
             return view('connect-b2');
         }
+
         if($this->domains_list->count() == 0) {
             session()->flash('message','You need to add a domain to generate download links');
             return view('add-domain');
         }
 
-        if(!$this->B2AccountID && $this->B2Accounts->count() > 1) {
-            return view('select-b2-account', ['B2Accounts'=>$this->B2Accounts]);
-        }
+        // if(!$this->B2AccountID && $this->B2Accounts->count() > 1) {
+        //     return view('select-b2-account', ['B2Accounts'=>$this->B2Accounts]);
+        // }
 
-        if(!$this->domainID && $this->domains_list->count() > 1) {
-            return view('livewire.select-domain', ['domains_list'=>$this->domains_list]);
-        }
+        // if(!$this->domainID && $this->domains_list->count() > 1) {
+        //     return view('livewire.select-domain', ['domains_list'=>$this->domains_list]);
+        // }
 
-        return view('livewire.upload-local-file');
+        return view('livewire.upload-local-file', ['domains_list'=>$this->domains_list, 'B2Accounts'=>$this->B2Accounts]);
     }
 
 
@@ -110,20 +111,24 @@ public $B2Accounts;
         $ext = explode('.', $name);
         $extension = $ext[count($ext) - 1];
 
-        $domain_info = DB::table('domains')->where('id', $this->domainID)->where('user_id', $this->user_id)->first();
-        $d_link = 'https://'.$domain_info->subdomain.'.'.$domain_info->name.'/file/'.$this->B2Accounts[0]['bucket_name'].'/'.$file_name;
+        $the_b2_account_id = $this->B2AccountID ?? $this->B2Accounts[0]['id'];
+        $the_domain_id = $this->domainID ?? $this->domains_list[0]['id'];
 
+        $domain_info = DB::table('domains')->where('id', $the_domain_id)->where('user_id', $this->user_id)->first();
+        $bucket_info = DB::table('b2_accounts')->where('id', $the_b2_account_id)->where('user_id', $this->user_id)->first();
+
+        $d_link = 'https://'.$domain_info->subdomain.'.'.$domain_info->name.'/file/'.$bucket_info->bucket_name.'/'.$name;
 
         $filemeta = new FileMeta;
 
         $filemeta->name = $name;
         $filemeta->user_id = $this->user_id;
-        $filemeta->domain_id = $this->domainID ?? $this->domains_list[0]['id'];
+        $filemeta->domain_id = $the_domain_id;
         $filemeta->download_link = $d_link;
         $filemeta->size = $file_size;
         $filemeta->extension = $extension;
         $filemeta->uploading_type = 'local_upload';
-        $filemeta->b2_account_id = $this->B2AccountID ?? $this->B2Accounts[0]['id'];
+        $filemeta->b2_account_id = $the_b2_account_id;
 
         $filemeta->save();
 

@@ -32,6 +32,8 @@ Route::get('find-b2-keys', function () {
 Route::match(['GET', 'POST'], 'connect-b2', [B2Controller::class, 'index'])->name('connectb2')->middleware('auth');
 
 Route::match(['GET', 'POST'], 'add-domain-name', [DomainController::class, 'index'])->name('add-domain-name')->middleware('auth');
+Route::get('add-bucket', [B2Controller::class, 'add_bucket'])->name('add-bucket')->middleware('auth');
+Route::get('add-bucket-success', [B2Controller::class, 'add_bucket_success'])->name('add-bucket-success')->middleware('auth');
 
 Route::get('/upload', function () {
     return view('upload-files');

@@ -8,7 +8,7 @@ use Auth;
 
 class B2Controller extends Controller
 {
-    function index(Request $request) {
+    public function index(Request $request) {
 
 
         if ($request->isMethod('post')) {
@@ -42,7 +42,10 @@ class B2Controller extends Controller
         return view('connect-b2');
     }
 
-    function store_domain(Request $request){
-        dd($request);
+    public function add_bucket(){
+        return view('add-bucket');
+    }
+    public function add_bucket_success(){
+        return view('add-bucket-success');
     }
 }

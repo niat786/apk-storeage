@@ -49,6 +49,7 @@
                                 </span>
                             </x-slot>
 
+
                             <x-slot name="content">
                                 <div class="w-60">
                                     <!-- Team Management -->
@@ -105,10 +106,16 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
-                            </div>
+
+                            <x-jet-dropdown-link href="{{ url('connect-b2') }}">
+                                {{ __('Add Backblaze Account') }}
+                            </x-jet-dropdown-link>
+                            {{-- <x-jet-dropdown-link href="{{ route('add-bucket') }}">
+                                {{ __('Add Bucket') }}
+                            </x-jet-dropdown-link> --}}
+
+                            <div class="mt-2 border-t border-gray-100"></div>
+
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}

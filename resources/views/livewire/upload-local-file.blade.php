@@ -44,13 +44,27 @@
                             <h2 class="text-xl">Select Files From Your Device</h2>
                             <div class="my-5 group">
                                 <div class="w-full">
-                                    {{-- <select wire:model="domainID" class="input-field">
-                                        @forelse ($domains_list as $domain)
-                                            <option value="{{ $domain->id }}">{{ $domain->name }}</option>
-                                        @empty
-                                        <option value="0">--select--</option>
-                                        @endforelse
-                                    </select> --}}
+                                    <div class="w-full">
+                                        <select wire:model="domainID" class="input-field">
+                                            @forelse ($domains_list as $domain)
+                                                <option value="{{ $domain->id }}">{{ $domain->name }}</option>
+                                            @empty
+                                                <option value="0">--Select--</option>
+                                            @endforelse
+
+                                        </select>
+                                    </div>
+
+                                    <div class="w-full">
+                                        <select wire:model="B2AccountID" class="input-field">
+                                            @forelse ($B2Accounts as $account)
+                                                <option value="{{ $account->id }}">{{ $account->bucket_name }}</option>
+                                            @empty
+                                                <option value="0">--Select--</option>
+                                            @endforelse
+
+                                        </select>
+                                    </div>
 
                                 </div>
 

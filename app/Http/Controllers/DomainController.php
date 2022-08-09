@@ -8,7 +8,7 @@ use Auth;
 
 class DomainController extends Controller
 {
-    function index(Request $request) {
+    public function index(Request $request) {
 
         if ($request->isMethod('post')) {
             $this->validate($request, [
