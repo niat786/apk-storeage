@@ -24,6 +24,9 @@ use App\Http\Controllers\FileStoreController;
 Route::get('/', function () {
     return view('homepage');
 });
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->middleware('auth');
 
 Route::get('find-b2-keys', function () {
     return view('find-b2-keys');
