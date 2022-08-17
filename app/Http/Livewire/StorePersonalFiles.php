@@ -43,7 +43,7 @@ class StorePersonalFiles extends Component
             return view('livewire.store-personal-files', ['all_files'=> $files]);
         }
 
-        $files = DB::table('file_metas')->where('user_id', Auth::User()->id)->orderBy('name', 'asc')->paginate(20);
+        $files = DB::table('file_metas')->where('user_id', Auth::User()->id)->where('deleted_at','=',NULL)->orderBy('name', 'asc')->paginate(20);
         return view('livewire.store-personal-files', ['all_files'=> $files]);
     }
 

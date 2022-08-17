@@ -43,16 +43,18 @@
 
                                 <div class="p-2 form-group">
                                     <div class="py-2 label">
-                                        <label>Select bucket for key ID & application key </label>
-
+                                    <label>Select domain </label>
                                     </div>
-                                   <select wire:model="reference_account" class="w-full p-2 border-gray-300 rounded focus:ring-0">
 
-                                    @foreach($b2_accounts as $account)
-                                        <option value="{{$account->bucket_name}}">{{$account->bucket_name}}</option>
-                                    @endforeach
-                                   </select>
-                                   <input type="hidden" value="{{$b2_accounts[0]->id}}">
+                                    <select wire:model="domainID" class="w-full p-2 border-gray-300 rounded focus:ring-0">
+                                        @forelse ($domains as $domain)
+                                            <option value="{{ $domain->id }}">{{ $domain->name }}</option>
+                                        @empty
+                                            <option value="0">--Select--</option>
+                                        @endforelse
+
+                                    </select>
+
                                 </div>
 
 
@@ -75,6 +77,27 @@
                                             class="w-full p-2 border-gray-300 rounded focus:ring-0">
                                     </div>
                                 </div>
+
+                                <div class="p-2 form-group">
+                                    <div class="py-2 label">
+                                        <label for="key-id">Key ID</label>
+                                    </div>
+                                    <div class="input">
+                                        <input name="keyID" value="{{ old('keyID') }}" type="text"
+                                            class="w-full p-2 border-gray-300 rounded focus:ring-0">
+                                    </div>
+                                </div>
+
+                                <div class="p-2 form-group">
+                                    <div class="py-2 label">
+                                        <label>Application Key</label>
+                                    </div>
+                                    <div class="input">
+                                        <input name="ApplicationKey" value="{{ old('ApplicationKey') }}" type="text"
+                                            class="w-full p-2 border-gray-300 rounded focus:ring-0">
+                                    </div>
+                                </div>
+
 
 
                                 <div class="p-2 form-group">

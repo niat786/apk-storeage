@@ -8,6 +8,12 @@
 .button-white {
     @apply px-3 py-2 my-2 text-purple-700 bg-white hover:bg-gray-100 rounded shadow-md
 }
+.button-green {
+    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-green-700/30 bg-gradient-to-tr from-green-600 to-green-500
+}
+.button-orange {
+    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-orange-700/30 bg-gradient-to-tr from-orange-600 to-orange-500
+}
 .input-field {
     @apply w-full p-3 my-4 border-gray-300 rounded-lg md:w-1/2 dark:border-gray-500 hover:ring-0 focus:ring-0
 }

@@ -13,36 +13,35 @@ use  App\Models\FileMeta;
 use Auth;
 use Carbon\Carbon;
 use DB;
-
-
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Exception\ClientException;
 
 class UploadLocalFile extends Component
 {
-
-use WithFileUploads;
-public $file;
-public $domainID;
-public $B2AccountID;
-public $user_id;
-public $domains_list;
-public $B2Accounts;
+    use WithFileUploads;
+    public $file;
+    public $domainID;
+    public $B2AccountID;
+    public $user_id;
+    public $domains_list;
+    public $B2Accounts;
 
     public function render()
     {
-
         $this->user_id = Auth::User()->id;
 
         $this->domains_list = DB::table('domains')->where('user_id', $this->user_id)->get();
-        $this->B2Accounts = DB::table('b2_accounts')->where('user_id', $this->user_id)->get();
-
-        if($this->B2Accounts->count() == 0) {
-            session()->flash('message','You need to add a backblaze account to upload files');
-            return view('connect-b2');
-        }
-
-        if($this->domains_list->count() == 0) {
-            session()->flash('message','You need to add a domain to generate download links');
+        if ($this->domains_list->count() == 0) {
+            session()->flash('message', 'You need to add a domain to generate download links');
             return view('add-domain');
+        }
+        $the_domain_id = $this->domainID ?? $this->domains_list[0]->id;
+
+        $this->B2Accounts = DB::table('b2_accounts')->where('domain_id', $the_domain_id)->where('user_id', $this->user_id)->get();
+
+        if ($this->B2Accounts->count() == 0) {
+            session()->flash('message', 'You need to add a backblaze account to upload files');
+            return view('connect-b2');
         }
 
         // if(!$this->B2AccountID && $this->B2Accounts->count() > 1) {
@@ -59,22 +58,21 @@ public $B2Accounts;
 
     public function save()
     {
-
         $messages = ['file.mimes'=> 'The file type is not supported',
         'file.required'=> 'Please Select a Valid File'
     ];
 
-    $this->validate([
+        $this->validate([
         'file' => 'required|file|mimes:jpg,bmp,png,ppt,pptx,doc,docx,pdf,xls,xlsx,txt,mp3,mp4,zip,mkv,flv,apk,jpeg,webp',
-    ],$messages);
+    ], $messages);
 
-    $file_extension = $this->file->getClientOriginalExtension();
+        $file_extension = $this->file->getClientOriginalExtension();
 
-    $name = $this->file->getClientOriginalName();
+        $name = $this->file->getClientOriginalName();
 
-    $b2_id = $this->B2AccountID ?? $this->B2Accounts[0]['id'];
+        $b2_id = $this->B2AccountID ?? $this->B2Accounts[0]['id'];
 
-    $b2_keys = DB::table('b2_accounts')->where('id', $b2_id)->where('user_id', $this->user_id)->first();
+        $b2_keys = DB::table('b2_accounts')->where('id', $b2_id)->where('user_id', $this->user_id)->first();
 
         // $temp_file_name = explode('?expires', basename($this->file->temporaryUrl()))[0];
 
@@ -84,8 +82,8 @@ public $B2Accounts;
         // ]);
         $this->file->storeAs('files', $name);
         $file_to_upload = Storage::path('files/'.$name);
-
-        $file = $client->upload([
+        try {
+            $file = $client->upload([
             'BucketId' => $b2_keys->bucketid,
             'FileName' => $name,
             'Body' => fopen($file_to_upload, 'r')
@@ -94,8 +92,11 @@ public $B2Accounts;
             // 'Body' => fopen('/path/to/input', 'r')
 
         ]);
+        } catch (ClientException $e) {
+            return redirect()->to('/upload-local-file')->with('error', 'Your Backblaze credentials are incorrect!');
+        }
 
-        if(!$this->domainID) {
+        if (!$this->domainID) {
             $this->domainID = $this->domains_list[0]['id'];
         }
         function formatBytes($size, $precision = 2)
@@ -138,22 +139,18 @@ public $B2Accounts;
 
         $temp_files = Storage::Files("livewire-tmp");
 
-        if(count($temp_files) >0) {
-            foreach($temp_files as $file) {
+        if (count($temp_files) >0) {
+            foreach ($temp_files as $file) {
+                $file_modified_at = Storage::lastModified($file);
 
-            $file_modified_at = Storage::lastModified($file);
-
-            $old_file =  Carbon::parse($file_modified_at)->addMinutes(30);
-            if($old_file->lessThan(Carbon::Now())){
-                Storage::delete($file);
+                $old_file =  Carbon::parse($file_modified_at)->addMinutes(30);
+                if ($old_file->lessThan(Carbon::Now())) {
+                    Storage::delete($file);
+                }
             }
-        }
-
-
         }
 
         // $this->file->storeAs('files', $name);
         return redirect($filemeta->id.'/upload-success');
-
     }
 }

@@ -25,6 +25,7 @@ class B2Controller extends Controller
                 'ApplicationKey' => 'required|string',
                 'BucketID' => 'required|string',
                 'BucketName' => 'required|string|alpha_dash',
+                'domain' => 'required',
             ], $messages);
 
             $user = new B2Account;
@@ -34,6 +35,7 @@ class B2Controller extends Controller
             $user->bucketid = $request->BucketID;
             $user->bucket_name = $request->BucketName;
             $user->user_id = Auth::User()->id;
+            $user->domain_id = $request->domain;
 
             $user->save();
             return redirect()->back()->with('success', 'B2 Account added!');

@@ -4,8 +4,13 @@
             <div class="p-6 bg-white border-b border-gray-200 sm:px-20">
                 <div class="mt-4 text-2xl">
                     Domain Names
-
                 </div>
+                @if (session('success'))
+                <p class="p-2 text-green-600">{{session('success')}}</p>
+                @endif
+                @if (session('error'))
+                <p class="p-2 text-rose-600">{{session('error')}}</p>
+                @endif
 
                 <div class="mt-6 text-gray-500">
                     @if (session('message'))

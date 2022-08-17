@@ -5,6 +5,10 @@
                 <div class="mt-4 text-2xl">
                     Upload Your Files and Share With Anyone!
                 </div>
+                @if( Session::has( 'error' ))
+
+                <p class="p-4 rounded text-rose-600 bg-rose-100"> {{ Session::get( 'error' ) }}</p>
+                @endif
                 <div class="mt-6 text-gray-500">
                     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                         <li class="mr-2">
@@ -42,25 +46,26 @@
                     <div class="my-6">
                         <form wire:submit.prevent="save">
                             <h2 class="text-xl">Select Files From Your Device</h2>
+
                             <div class="my-5 group">
                                 <div class="w-full">
                                     <div class="w-full">
-                                        <select wire:model="domainID" class="input-field">
+                                        <select id="domainID" wire:model="domainID" class="input-field" required>
                                             @forelse ($domains_list as $domain)
                                                 <option value="{{ $domain->id }}">{{ $domain->name }}</option>
                                             @empty
-                                                <option value="0">--Select--</option>
+                                                <option value="">--Select--</option>
                                             @endforelse
 
                                         </select>
                                     </div>
 
                                     <div class="w-full">
-                                        <select wire:model="B2AccountID" class="input-field">
+                                        <select id="b2ID" wire:model="B2AccountID" class="input-field" required>
                                             @forelse ($B2Accounts as $account)
                                                 <option value="{{ $account->id }}">{{ $account->bucket_name }}</option>
                                             @empty
-                                                <option value="0">--Select--</option>
+                                                <option value="">--Select--</option>
                                             @endforelse
 
                                         </select>
@@ -105,12 +110,14 @@
 
                                     <script>
                                         let save_text = document.getElementById('save_text');
+                                        let domain_id = document.getElementById('domainID');
+                                        let b2_id = document.getElementById('b2ID');
 
                                         let simplebtn = document.getElementById('simple_btn');
                                         let spinner = document.getElementById('spinner');
 
                                         simplebtn.addEventListener('click', () => {
-
+                                            if (domain_id.value == '' || b2_id.value == '') { return 0; }
 
                                             save_text.classList.add('hidden');
                                             spinner.classList.add('flex');

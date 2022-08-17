@@ -14,8 +14,4 @@ class AddDomainName extends Component
         return view('livewire.add-domain-name');
     }
 
-
-    public function save() {
-        dd($this->domain_name,$this->sub_domain);
-    }
 }

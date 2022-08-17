@@ -58,7 +58,7 @@
                                             <input id="d-link" type="url" class="input-field"  value="{{ $file->download_link }}">
                                         </div>
                                         <div class="group">
-                                            <button class="button" onclick="copyLink()">Copy Link</button>
+                                            <button class="text-sm button" onclick="copyLink()">Copy Link</button>
 
                                         </div>
                                     </div>

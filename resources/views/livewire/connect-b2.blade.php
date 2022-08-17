@@ -49,11 +49,26 @@
                             @csrf
                             <div class="p-2 form-group">
                                 <div class="py-2 label">
+                                <label>Select domain </label>
+                                </div>
+
+                                <select name="domain"  class="w-full p-2 border-gray-300 rounded focus:ring-0" required>
+                                    @forelse ($domains as $index => $domain)
+                                        <option value="{{ $domain->id }}">{{ $domain->name }}</option>
+                                    @empty
+                                        <option value="">--Select--</option>
+                                    @endforelse
+
+                                </select>
+
+                            </div>
+                            <div class="p-2 form-group">
+                                <div class="py-2 label">
                                     <label for="key-id">Key ID</label>
                                 </div>
                                 <div class="input">
                                     <input name="keyID" value="{{ old('keyID') }}" type="text"
-                                        class="w-full p-2 border-gray-300 rounded focus:ring-0">
+                                        class="w-full p-2 border-gray-300 rounded focus:ring-0" required>
                                 </div>
                             </div>
 
@@ -63,7 +78,7 @@
                                 </div>
                                 <div class="input">
                                     <input name="ApplicationKey" value="{{ old('ApplicationKey') }}" type="text"
-                                        class="w-full p-2 border-gray-300 rounded focus:ring-0">
+                                        class="w-full p-2 border-gray-300 rounded focus:ring-0" required>
                                 </div>
                             </div>
 
@@ -73,7 +88,7 @@
                                 </div>
                                 <div class="input">
                                     <input name="BucketID" value="{{ old('BucketID') }}" type="text"
-                                        class="w-full p-2 border-gray-300 rounded focus:ring-0">
+                                        class="w-full p-2 border-gray-300 rounded focus:ring-0" required>
                                 </div>
                             </div>
 
@@ -83,7 +98,7 @@
                                 </div>
                                 <div class="input">
                                     <input name="BucketName" value="{{ old('BucketName') }}" type="text"
-                                        class="w-full p-2 border-gray-300 rounded focus:ring-0">
+                                        class="w-full p-2 border-gray-300 rounded focus:ring-0" required>
                                 </div>
                             </div>
 

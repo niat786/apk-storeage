@@ -13,10 +13,12 @@ class AddBucket extends Component
     public $bucketID;
     public $bucket_name;
     public $b2_accounts;
+    public $domains;
     public function render()
     {
-        $this->b2_accounts = DB::table('b2_accounts')->where('user_id', Auth::User()->id)->get();
-        return view('livewire.add-bucket', ['b2_accounts'=> $this->b2_accounts]);
+        // $this->b2_accounts = DB::table('b2_accounts')->where('user_id', Auth::User()->id)->get();
+        $this->domains = DB::table('domains')->where('user_id', Auth::User()->id)->get();
+        return view('livewire.add-bucket', ['domains'=> $this->domains]);
     }
 
     public function save()
