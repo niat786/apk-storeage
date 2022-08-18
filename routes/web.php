@@ -20,13 +20,6 @@ use App\Http\Controllers\DownloadController;
 |
 */
 
-Route::domain('{dl}.apkeve.com')->group(function () {
-    Route::get('/', function ($dl) {
-        dd($dl);
-    });
-});
-
-
 Route::get('/', function () {
     return view('homepage');
 });
