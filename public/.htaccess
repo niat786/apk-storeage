@@ -1,6 +1,3 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} www.apkeve.com
-RewriteRule (.*) https://apkeve.com/$1 [R=301,L]
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>

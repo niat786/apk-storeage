@@ -20,24 +20,11 @@ use App\Http\Controllers\DownloadController;
 |
 */
 
-// Route::domain('blog.' . env('APP_URL'))->group(function () {
-//     Route::get('/', function ($account, $id) {
-//         dd('subdomain');
-//     });
-// });
-
-use App\Models\User;
-use App\Models\Domain;
-use App\Models\B2Account;
-
-Route::get('/set', function () {
-    $domains = Domain::all();
-    foreach ($domains as $domain) {
-        B2Account::where('user_id', $domain->user_id)->update(['domain_id' => $domain->id]);
-    }
-    dd('done');
+Route::domain('{dl}.example.com')->group(function () {
+    Route::get('/', function ($dl) {
+        dd($dl);
+    });
 });
-
 
 
 Route::get('/', function () {

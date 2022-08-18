@@ -8,7 +8,9 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function users() {
+    public function users(Request $request) {
+        // $s = $request->server('HTTP_REFERER');
+        // dd($s);
         return view('admin.dashboard');
     }
     public function files() {
