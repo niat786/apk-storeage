@@ -23,9 +23,6 @@ use App\Http\Controllers\DownloadController;
 Route::get('/', function () {
     return view('homepage');
 });
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-})->middleware('auth');
 
 Route::prefix('admin')->group(function () {
     Route::get('users', [AdminController::class, 'users'])->middleware('auth')->name('users');
