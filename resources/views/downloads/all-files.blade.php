@@ -36,6 +36,8 @@
         </div>
     </div>
     <div class="container p-4 mx-auto bg-white rounded-xl">
+        @livewire('ads.responsive')
+
 
         <div class="flex flex-wrap">
 

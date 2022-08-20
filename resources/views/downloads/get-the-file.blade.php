@@ -6,6 +6,8 @@
     @endphp
     @if ($the_session)
         <div class="container p-10 mx-auto my-5 bg-white rounded shadow-lg">
+            @livewire('ads.responsive')
+
             <div class="flex justify-center py-5 title">
                 <h1 class="text-2xl text-gray-600">Download {{ $f }}</h1>
             </div>
@@ -27,6 +29,8 @@
         </div>
     @else
         <div class="container p-10 mx-auto my-5 bg-white rounded shadow-lg">
+            @livewire('ads.responsive')
+
             @if (session('notfound'))
             <div class="p-4 text-rose-600 bg-rose-100">
                {{session('notfound')}}
