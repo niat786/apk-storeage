@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FileMeta;
 use Auth;
+use DB;
 
 class FileController extends Controller
 {
@@ -25,18 +26,22 @@ class FileController extends Controller
 
     public function show_single_file($id)
     {
-        $single_file = FileMeta::where('id', $id)->where('user_id', Auth::User()->id)->get();
-        return view('show-single-file', ['single_file' => $single_file]);
+        $file = DB::table('file_metas')->where('id', $id)->get();
+
+        return view('show-single-file', ['single_file' => $file]);
     }
 
     public function delete_file(Request $request)
     {
         $file = FileMeta::where('user_id', Auth::User()->id )->where('id', $request->id)->first();
         if ($file === null) {
-            return ['status'=>403, 'message'=>0];
+            return redirect()->to(url('my-files'))->with('error', 'Sorry this file does not belongs to you!');
+            // return ['status'=>403, 'message'=>0];
         }else{
             $file->delete();
-            return ['status'=>200, 'message'=>1];;
+            return redirect()->to(url('my-files'))->with('success', 'Success, File deleted Successfully!');
+
+            // return ['status'=>200, 'message'=>1];;
         }
     }
 

@@ -35,9 +35,18 @@
             </div>
         </div>
     </div>
+
     <div class="container p-4 mx-auto bg-white rounded-xl">
+        @if (session('success'))
+        <p class="p-2 text-green-600">{{ session('success') }}</p>
+    @endif
+    @if (session('error'))
+        <p class="p-2 text-rose-600">{{ session('error') }}</p>
+    @endif
 
         <div class="flex flex-wrap">
+
+
             @if ($search)
                 <div class="w-full">
                     <h2 class="pb-4 mx-5 my-4 text-xl text-gray-500 border-b">Search Result for <span>

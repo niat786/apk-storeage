@@ -31,6 +31,7 @@ Route::prefix('admin')->group(function () {
 
 Route::prefix('download')->group(function () {
     Route::get('files', [DownloadController::class, 'all_files']);
+    Route::get('show/{id}', [DownloadController::class, 'show_single_file']);
     Route::get('file-is-ready', [DownloadController::class, 'test_download_page'])->name('generate-download-link'); // signed
     Route::get('files/{user_id}/{file_name}', [DownloadController::class, 'show_file']);
     Route::get('/{user_id}/{file_name}', [DownloadController::class, 'download_file']);
@@ -74,7 +75,7 @@ Route::get('delete-failed', [FileController::class, 'delete_failed'])->middlewar
 
 
 Route::get('show/{id}', [FileController::class, 'show_single_file'])->middleware('auth');
-Route::post('delete-file', [FileController::class, 'delete_file'])->middleware('auth');
+Route::delete('delete-file', [FileController::class, 'delete_file'])->middleware('auth');
 Route::get('delete-file-success', [FileController::class, 'delete_file_success'])->middleware('auth');
 
 // File Store
@@ -99,5 +100,6 @@ Route::middleware([
 
 
 Route::get('/{slug}', function () {
-    return view('404');
+    // abort(404);
+    return view('404', ['status'=>404]);
 });

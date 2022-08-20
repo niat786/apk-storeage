@@ -12,8 +12,14 @@ class DownloadController extends Controller
 {
     public function all_files()
     {
-        $files = FileMeta::paginate(20);
+        $files = FileMeta::where('b2_account_type', 'personal')->paginate(20);
         return view('downloads.all-files', ['files' => $files]);
+    }
+
+    public function show_single_file($id) {
+        $file = FileMeta::where('id',$id)->get();
+        return view('downloads.single-file', ['single_file' => $file]);
+
     }
 
     public function show_file($userID = 0, $file_name = '')
@@ -38,14 +44,18 @@ class DownloadController extends Controller
 
     public function download_file($user_id = 0, $file_name = '')
     {
-        // dd($file_id, $file_name);
-        $file = DB::table('file_metas')->where('user_id', $user_id)->where('name', $file_name)->first();
+        // https://dl.apkeve.com/file/apkeve/file.pdf
+        $subdomains = ['qwctoscend', 'ooddnsheck', 'kendoswcod', 'soendkeosk', 'hdowneksic', 'osdocensod'];
+        $subdomain = $subdomains[rand(0,5)];
+        $download_link = "https://".$subdomain.".apkeve.com/file/public-file/".$file_name;
+        return redirect()->to($download_link);
+        // $file = DB::table('file_metas')->where('user_id', $user_id)->where('name', $file_name)->first();
 
-        if ($file) {
-            return redirect()->to($file->download_link);
-        }
+        // if ($file) {
+        //     return redirect()->to($file->download_link);
+        // }
 
-        return redirect()->back()->with('notfound', 'Sorry File Not Available for downloading ... ');
+        // return redirect()->back()->with('notfound', 'Sorry File Not Available for downloading ... ');
 
 
         // $d_link = URL::temporarySignedRoute('get-the-file',  now()->addMinutes(1440), ['fileID' => $file_id, 'name' => $file_name]);

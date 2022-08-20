@@ -44,9 +44,9 @@ class UploadOnlineFile extends Component
         return redirect('upload-failed');
       } else {
         if (file_put_contents($file_name, $file_content)) {
-            $client = new Client('004b9b536b4e9e40000000004', 'K004WUHxzNakQCroBsqplnradsX3V9U');
+            $client = new Client('004b9b536b4e9e40000000005', 'K004LZmjrs/NxdGFSXpngkTYfWYszBQ');
             $file = $client->upload([
-            'BucketId' => '7b090b7503167b948e290e14',
+            'BucketId' => 'eb19db859356bba48e290e14',
             'FileName' => $file_name,
             'Body' => fopen(public_path($file_name), 'r')
         ]);
@@ -75,7 +75,8 @@ class UploadOnlineFile extends Component
             File::delete($file_name);
 
             // $domain_info = Domain::where('id', $this->domainID)->where('user_id', $this->user_id)->first();
-            $d_link = 'https://download.apkeve.com/'.$file_name;
+            // $d_link = 'https://download.apkeve.com/'.$file_name;
+            $d_link = "https://apkeve.com/download/files/".Auth::User()->id."/".$file_name;
 
             $filemeta = new FileMeta;
 

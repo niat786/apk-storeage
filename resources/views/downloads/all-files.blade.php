@@ -15,7 +15,7 @@
                     </select>
                 </div>
             @endauth
-            <div class="flex w-full my-1 lg:w-1/6">
+            {{-- <div class="flex w-full my-1 lg:w-1/6">
 
                 <select wire:model="category" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0">
 
@@ -26,7 +26,7 @@
                     <option value="txt">TXT Files</option>
                     <option value="image">Images</option>
                 </select>
-            </div>
+            </div> --}}
             <div class="flex w-full my-1 lg:w-1/4">
 
                 <input type="search" placeholder="search" wire:model.debounce.1000ms="search"
@@ -38,25 +38,11 @@
     <div class="container p-4 mx-auto bg-white rounded-xl">
 
         <div class="flex flex-wrap">
-            {{-- @if ($search)
-                <div class="w-full">
-                    <h2 class="pb-4 mx-5 my-4 text-xl text-gray-500 border-b">Search Result for <span>
-                            "{{ $search }}"</span></h2>
-
-                </div>
-            @endif --}}
-
-
 
             @forelse ($files as $index => $file)
-                <a href="{{ url('show', ['id' => $file->id]) }}"
+                <a href="{{ url('download/show', ['id' => $file->id]) }}"
                     class="flex w-full gap-2 px-3 py-2 rounded md:w-1/2 hover:shadow-sm hover:bg-gray-100">
-                    {{-- <span class="px-2 text-xs text-gray-600 ">
-                        {{ $index + 1 }}
-                        @if ($index + 1 < 10)
-                            &nbsp;
-                        @endif
-                    </span> --}}
+
                     @php
                         $ext = explode('.', $file->name);
                         $extension = $ext[count($ext) - 1];

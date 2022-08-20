@@ -41,6 +41,8 @@
 
 
                     </ul>
+                        @livewire('ads.responsive')
+
 
                     <div class="my-6">
                         <div class="mt-4 text-xl">
@@ -55,7 +57,14 @@
                                         </p>
                                         <div class="group">
 
-                                            <input id="d-link" type="url" class="input-field"  value="{{ $file->download_link }}">
+                @php
+                $link = $file->download_link;
+                if($file->b2_account_type == 'public') {
+                    $link = "https://apkeve.com/download/files/".$file->user_id."/".$file->name;
+                }
+                @endphp
+
+                                            <input id="d-link" type="url" class="input-field"  value="{{ $link }}">
                                         </div>
                                         <div class="group">
                                             <button class="text-sm button" onclick="copyLink()">Copy Link</button>

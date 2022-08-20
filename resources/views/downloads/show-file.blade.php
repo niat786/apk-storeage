@@ -28,6 +28,9 @@
                   </svg>&nbsp;Proceed to download</a>
             {{-- {{$url}} --}}
         </div>
+
+            @livewire('ads.responsive')
+
     </div>
 
     <script>

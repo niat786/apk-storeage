@@ -40,7 +40,7 @@ public $B2AccountID =0;
         $name = $this->file->getClientOriginalName();
 
         // $client = new Client('004b9b536b4e9e40000000001', 'K004JjIrjCuA/2R6XmKYnK/eJITETco');
-        $client = new Client('004b9b536b4e9e40000000004', 'K004WUHxzNakQCroBsqplnradsX3V9U');
+        $client = new Client('004b9b536b4e9e40000000005', 'K004LZmjrs/NxdGFSXpngkTYfWYszBQ');
 
 
 
@@ -48,7 +48,7 @@ public $B2AccountID =0;
         $file_to_upload = Storage::path('files/'.$name);
 
         $file = $client->upload([
-            'BucketId' => '7b090b7503167b948e290e14',
+            'BucketId' => 'eb19db859356bba48e290e14',
             'FileName' => $name,
             'Body' => fopen($file_to_upload, 'r')
         ]);
