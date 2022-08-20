@@ -12,7 +12,7 @@ class DownloadController extends Controller
 {
     public function all_files()
     {
-        $files = FileMeta::where('b2_account_type', 'personal')->paginate(20);
+        $files = FileMeta::where('b2_account_type', 'public')->paginate(20);
         return view('downloads.all-files', ['files' => $files]);
     }
 
