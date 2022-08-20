@@ -16,7 +16,11 @@
 
         </div>
 
-        @livewire('ads.responsive')
+        <section class="w-full p-2">
+            @livewire('ads.responsive')
+
+        </section>
+
 
 
 
