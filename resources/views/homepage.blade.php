@@ -71,7 +71,7 @@
     </div>
 
     <div
-        class="w-full flex items-center h-[70vh] lg:h-screen p-5 bg-gradient-to-tr from-purple-700  to-purple-300 pt-44">
+        class="flex items-center w-full h-screen p-5 lg:h-screen bg-gradient-to-tr from-purple-700 to-purple-300 pt-44">
         <div class="container flex flex-wrap mx-auto">
 
             <div class="mx-auto md:w-1/2 md:p-10">
