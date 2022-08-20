@@ -90,9 +90,9 @@
                 </div>
             </div>
 
-            <div class="p-10 mx-auto md:w-1/2">
+            <div class="px-10 mx-auto md:w-1/2">
 
-                <img src="{{ asset('/images/home.svg') }}" alt="homepage image">
+                <img width="300" src="{{ asset('home-design.webp') }}" alt="homepage image">
             </div>
 
         </div>
