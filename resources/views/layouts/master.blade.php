@@ -13,6 +13,15 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
 
+        {{-- meta tags --}}
+        <meta name="title" content="ApkEve - Free file uploading & download link generator for your domain">
+        <meta name="description" content="Upload files and generate their download links as a subdomain of your primary domain. Connect Backblaze account and create downloadable links of files for free.">
+        <meta name="keywords" content="GUI to Upload files to cloud storage, Upload files & generate downloadable links, Generate download links as a subdomain">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        {{-- meta tags end --}}
+
         @include('scripts/analytics')
 
         <!-- Scripts -->
