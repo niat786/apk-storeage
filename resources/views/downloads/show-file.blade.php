@@ -2,6 +2,7 @@
 @section('content')
 
 <div class="container pt-4 pb-10 mx-auto my-5 bg-white rounded shadow-lg">
+
     <div class="flex justify-center py-5 title">
         <h1 class="text-2xl text-gray-600">Download {{$f}}</h1>
     </div>
@@ -14,6 +15,8 @@
     <p>Downloa the file for offline usage.</p>
 
         </div>
+
+        @livewire('ads.responsive')
 
 
 
@@ -29,7 +32,7 @@
             {{-- {{$url}} --}}
         </div>
 
-            @livewire('ads.responsive')
+
 
     </div>
 
