@@ -90,9 +90,9 @@
                 </div>
             </div>
 
-            <div class="px-10 mx-auto md:w-1/2">
+            <div class="flex justify-around px-10 mx-auto md:w-1/2">
 
-                <img width="300" src="{{ asset('home-design.webp') }}" alt="homepage image">
+                <img class="shadow-sm" width="350" src="{{ asset('home-design.webp') }}" alt="homepage image">
             </div>
 
         </div>
