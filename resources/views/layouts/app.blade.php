@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    @include('scripts/ads')
+
     @include('scripts/analytics')
 
     <!-- Styles -->

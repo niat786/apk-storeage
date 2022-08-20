@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Homepage</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @include('scripts/ads')
+
     @include('scripts/analytics')
 
 </head>
@@ -17,8 +17,10 @@
         <nav x-data="{ show_mobile_menu: false }" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
                 <a href="https://apkeve.com/" class="flex items-center text-white">
-                    <img src="{{ asset('/images/logo.svg') }}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo">
-                    <span class="self-center text-xl font-semibold text-white whitespace-nowrap">Files</span>
+                    <img width="140" src="{{ asset('APKeve-logo/logo.webp') }}" class="block h-auto w-2/10" alt="logo">
+
+                    {{-- <img src="{{ asset('/images/logo.svg') }}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo"> --}}
+                    {{-- <span class="self-center text-xl font-semibold text-white whitespace-nowrap">Files</span> --}}
                 </a>
                 <div class="flex items-center md:order-2">
 
@@ -227,8 +229,8 @@
     <footer class="p-4 bg-gray-900 shadow md:px-6 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="https://apkeve.com/" class="flex items-center mb-4 sm:mb-0">
-                <img src="{{ asset('/images/logo.svg') }}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo">
-                <span class="self-center text-2xl font-semibold text-gray-400 whitespace-nowrap">Files</span>
+                <img width="150" src="{{ asset('APKeve-logo/logo-light.webp') }}" class="w-auto h-10 ml-3 mr-2 sm:h-9" alt="site Logo">
+                {{-- <span class="self-center text-2xl font-semibold text-gray-400 whitespace-nowrap">Files</span> --}}
             </a>
             <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-400 sm:mb-0 dark:text-gray-400">
                 <li>

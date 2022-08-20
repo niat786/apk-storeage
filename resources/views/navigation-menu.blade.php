@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('logo.webp') }}" class="block w-auto h-32" alt="logo">
+                        <img width="120" src="{{ asset('APKeve-logo/logo-dark-purple.webp') }}" class="block h-auto w-2/10" alt="logo">
                         <!-- <x-jet-application-mark class="block w-auto h-9" /> -->
                     </a>
                 </div>

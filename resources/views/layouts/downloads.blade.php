@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Download File') }}</title>
-    @include('scripts/ads')
+
     @include('scripts/analytics')
 
     <!-- Scripts -->
@@ -22,8 +22,7 @@
             <nav x-data="{ show_mobile_menu: false }" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
                     <a href="https://apkeve.com/" class="flex items-center text-white">
-                        <img src="{{ asset('/images/logo.svg') }}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo">
-                        <span class="self-center text-xl font-semibold text-white whitespace-nowrap">Files</span>
+                        <img width="150" src="{{ asset('APKeve-logo/logo.webp') }}" class="w-auto h-10 ml-3 mr-2 sm:h-9" alt="site Logo">
                     </a>
                     <div class="flex items-center md:order-2">
 

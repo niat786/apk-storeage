@@ -18,10 +18,7 @@
 
         <section class="w-full p-2">
             @livewire('ads.responsive')
-
         </section>
-
-
 
 
         <div class="flex items-center cursor-pointer downloadbtn button" id="d-btn">
