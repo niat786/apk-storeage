@@ -1,4 +1,4 @@
-<div>
+<div class="h-full pb-20">
     @include('livewire/admin/navbar')
     <div class="container flex gap-4 p-4 mx-auto my-2 overflow-hidden rounded-lg">
         <div class="flex w-full p-2 rounded-lg">
@@ -8,8 +8,9 @@
                    <span class="text-lg font-semibold text-left text-gray-700">Menu</span>
                 </div>
                 <ul class="mt-4 space-y-2">
-                    <li><a href="{{url('admin/users')}}">Users</a></li>
-                    <li><a href="{{url('admin/files')}}">Files</a></li>
+
+                    <li><a href="{{url('admin/files')}}">All Files</a></li>
+                    <li><a href="{{url('admin/public-files')}}">Public Files</a></li>
                 </ul>
             </div>
             <div class="w-full md:w-3/4">
@@ -21,9 +22,12 @@
                         </caption>
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Avatar
+                                <th class="px-6 py-4">
+                                    S. No
                                 </th>
+                                {{-- <th scope="col" class="px-6 py-3">
+                                    Avatar
+                                </th> --}}
                                 <th scope="col" class="px-6 py-3">
                                     Name
                                 </th>
@@ -39,13 +43,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($users as $key=> $user)
 
 
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <td class="px-6 py-4">
+                                   {{$key+1}}
+                                </td>
+                                {{-- <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <img class="rounded" src="{{$user->profile_photo_url}}" alt="{{$user->name}}-image" width="50">
-                                </th>
+                                </td> --}}
                                 <td class="px-6 py-4">
                                     {{$user->name}}
                                 </td>
@@ -53,7 +60,7 @@
                                     {{$user->email}}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{$user->created_at}}
+                                    {{explode(' ', $user->created_at)[0]}}
                                 </td>
                                 <td class="px-6 py-4 text-right">
                                     <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
@@ -68,6 +75,12 @@
 
 
 
+
+
         </div>
+    </div>
+    <div class="container w-1/2 mx-auto my-10">
+
+        {{ $users->links() }}
     </div>
 </div>

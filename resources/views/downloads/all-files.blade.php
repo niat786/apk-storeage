@@ -4,29 +4,8 @@
 <div>
     <div class="container p-4 mx-auto my-4 bg-white rounded-xl">
         <div class="flex flex-col justify-end text-gray-500 lg:flex-row xl:max-w-7xl md:gap-4">
-            @auth
-                <div class="flex w-full my-1 lg:w-1/6">
-                    {{-- <label class="flex items-center text-indigo-600 w-[150px]">Select Files:</label> --}}
 
-                    <select class="w-full p-2 border-gray-200 rounded-lg focus:ring-0" wire:model="storeType">
-                        <option value="my_files">My Files</option>
-                        <option value="public_store">Public Store</option>
 
-                    </select>
-                </div>
-            @endauth
-            {{-- <div class="flex w-full my-1 lg:w-1/6">
-
-                <select wire:model="category" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0">
-
-                    <option value="">Show All</option>
-                    <option value="app">Apps</option>
-                    <option value="pdf">PDF Files</option>
-                    <option value="zip">ZIP Files</option>
-                    <option value="txt">TXT Files</option>
-                    <option value="image">Images</option>
-                </select>
-            </div> --}}
             <div class="flex w-full my-1 lg:w-1/4">
 
                 <input type="search" placeholder="search" wire:model.debounce.1000ms="search"

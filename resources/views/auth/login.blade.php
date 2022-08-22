@@ -1,8 +1,9 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            {{-- <x-jet-authentication-card-logo /> --}}
         </x-slot>
+
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -13,6 +14,13 @@
         @endif
 
         <form method="POST" action="{{ route('login') }}">
+            <a href="/" class="flex justify-center w-full mx-auto my-4 ">
+                <img width="150" src="{{ asset('APKeve-logo/logo-dark-purple.webp') }}" class="w-auto h-10 sm:h-9" alt="site Logo">
+
+            </a>
+
+
+
             @csrf
 
             <div>

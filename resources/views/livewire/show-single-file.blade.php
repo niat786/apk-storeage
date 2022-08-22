@@ -77,7 +77,7 @@
             <div class="px-2 pb-4 mx-auto" x-data="{ copied: 0 }">
 
                 <h2 class="mt-4 text-lg font-semibold text-gray-500 md:mt-6 lg:mt-8">File Download Link
-                    &nbsp;<span id="copy-message" x-show="copied" x-transition
+                    &nbsp;<span x-cloak id="copy-message" x-show="copied" x-transition
                         class="w-full text-xs text-green-600">Link
                         Copied!</span>
 
@@ -116,7 +116,7 @@
                     </div>
 
                 </div>
-                <div x-show="show" tabindex="-1"
+                <div x-cloak x-show="show" tabindex="-1"
                     class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-gray-300 bg-opacity-50 md:inset-0 h-modal md:h-full"
                     aria-modal="true" role="dialog">
                     <div class="relative w-full h-full max-w-md p-4 md:h-auto">

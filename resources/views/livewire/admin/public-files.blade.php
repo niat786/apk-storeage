@@ -9,8 +9,7 @@
                 </div>
                 <ul class="mt-4 space-y-2">
                     <li><a href="{{url('admin/users')}}">Users</a></li>
-                    <li><a href="{{url('admin/public-files')}}">Public Files</a></li>
-
+                    <li><a href="{{url('admin/files')}}">All Files</a></li>
                 </ul>
             </div>
             <div class="w-full md:w-3/4">
@@ -37,9 +36,7 @@
                                 <th scope="col" class="px-6 py-3">
                                     User
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Domain
-                                </th>
+
                             </tr>
                         </thead>
                         {{-- {{$files[0]}} --}}
@@ -63,9 +60,7 @@
                                 <td class="px-6 py-4">
                                     {{$file->user?->name}}
                                 </td>
-                                <td class="px-6 py-4 text-right">
-                                {{$file->domain?->name}}
-                                </td>
+
                             </tr>
                             @endforeach
 

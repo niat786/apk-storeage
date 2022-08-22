@@ -49,7 +49,7 @@
 
 
                                     <!-- Main modal -->
-                                    <div x-show="show" tabindex="-1"
+                                    <div x-cloak x-show="show" tabindex="-1"
                                         class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center w-full overflow-x-hidden overflow-y-auto bg-gray-300 bg-opacity-50 md:inset-0 h-modal md:h-full"
                                         aria-modal="true" role="dialog">
                                         <div class="relative w-full h-full max-w-md p-4 md:h-auto">
@@ -117,7 +117,7 @@
                                         data-modal-toggle="popup-modal">Delete</a>
 
 
-                                    <div x-show="show" tabindex="-1"
+                                    <div x-cloak x-show="show" tabindex="-1"
                                         class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-gray-300 bg-opacity-50 md:inset-0 h-modal md:h-full"
                                         aria-modal="true" role="dialog">
                                         <div class="relative w-full h-full max-w-md p-4 md:h-auto">
@@ -233,7 +233,7 @@
                                         data-modal-toggle="popup-modal">Delete</a>
 
 
-                                    <div x-show="show" tabindex="-1"
+                                    <div x-cloak x-show="show" tabindex="-1"
                                         class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto bg-gray-300 bg-opacity-50 md:inset-0 h-modal md:h-full"
                                         aria-modal="true" role="dialog">
                                         <div class="relative w-full h-full max-w-md p-4 md:h-auto">

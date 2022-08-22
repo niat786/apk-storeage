@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::get('users', [AdminController::class, 'users'])->middleware('auth')->name('users');
     Route::get('files', [AdminController::class, 'files'])->middleware('auth')->name('files');
+    Route::get('public-files', [AdminController::class, 'public_files'])->middleware('auth')->name('public-files');
 });
 
 Route::prefix('download')->group(function () {

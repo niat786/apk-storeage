@@ -109,13 +109,20 @@
                             <x-slot name="content">
 
                                 <x-jet-dropdown-link href="{{ url('connect-b2') }}">
-                                    {{ __('Add Backblaze Account') }}
+                                    {{ __('Add New Bucket') }}
                                 </x-jet-dropdown-link>
                                 {{-- <x-jet-dropdown-link href="{{ route('add-bucket') }}">
                                     {{ __('Add Bucket') }}
                                 </x-jet-dropdown-link> --}}
+                                <x-jet-dropdown-link href="{{ route('add-domain-name') }}">
+                                    {{ __('Add Domain') }}
+                                </x-jet-dropdown-link>
+
 
                                 <div class="mt-2 border-t border-gray-100"></div>
+                                <x-jet-dropdown-link href="{{ route('manage-account') }}">
+                                    {{ __('Manage Account') }}
+                                </x-jet-dropdown-link>
 
 
                                 <x-jet-dropdown-link href="{{ route('profile.show') }}">

@@ -40,11 +40,12 @@
                     <a href="https://apkeve.com/" class="flex items-center text-white">
                         <img width="150" src="{{ asset('APKeve-logo/logo.webp') }}" class="w-auto h-10 ml-3 mr-2 sm:h-9" alt="site Logo">
                     </a>
-                    <div class="flex items-center md:order-2">
+                    <div class="flex my-2 md:order-2">
 
-                        <a href="{{ url('download/files') }}" class="mx-2 text-sm text-white">Files</a>
+                        <a href="{{ url('download/files') }}" class="mx-2 text-sm text-white">Public Files</a>
+                        <a href="{{ url('my-files') }}" class="mx-2 text-sm text-white">My Files</a>
                         @auth
-                            <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white">Upload Files</a>
+                            <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white">Upload</a>
                         @endauth
                         @guest
                             <a href="{{ route('login') }}" class="mx-2 text-sm text-white">Login</a>
@@ -79,7 +80,7 @@
                             <li>
                                 <a href="#"
                                     class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Public
-                                    Files</a>
+                                    Public Files</a>
                             </li>
 
                         </ul>

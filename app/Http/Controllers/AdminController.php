@@ -16,4 +16,7 @@ class AdminController extends Controller
     public function files() {
         return view('admin.files');
     }
+    public function public_files() {
+        return view('admin.public_files');
+    }
 }
