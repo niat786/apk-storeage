@@ -1,12 +1,12 @@
-<div class="container p-4 mx-auto my-4 bg-white rounded-xl">
+<div class="single-file-container">
     <div class="flex">
 
 
     <div class="w-full lg:w-3/4 filename">
         @foreach ($single_file as $file)
-            <div class="flex border-b xl:max-w-7xl">
+            <div class="flex border-b dark:border-gray-600 xl:max-w-7xl">
 
-                <h1 class="flex items-center gap-3 my-4 text-xl font-semibold text-gray-600 ">
+                <h1 class="single-file-name">
 
                     @switch($file->extension)
                         @case('apk')
@@ -44,29 +44,29 @@
 
             </div>
 
-            <div class="px-2 pb-4 mx-auto border-b">
-                <h2 class="pb-4 mt-4 text-lg font-semibold text-gray-500 md:mt-6 lg:mt-8">File Info</h2>
+            <div class="px-2 pb-4 mx-auto border-b dark:border-gray-600">
+                <h2 class="single-file-h2">File Info</h2>
 
                 <div class="flex flex-wrap gap-1 md:flex-row xl:max-w-7xl ">
                     <div
-                        class="flex items-center w-full px-4 rounded md:w-1/2 bg-gray-50 hover:cursor-pointer hover:shadow-sm h-14 hover:bg-gray-100">
+                        class="single-file-label">
                         <div class="font-semibold">Name:</div>&nbsp;{{ $file->name }}
                     </div>
 
 
                     <div
-                        class="flex items-center w-full px-4 rounded md:w-1/2 bg-gray-50 hover:cursor-pointer hover:shadow-sm h-14 hover:bg-gray-100">
+                        class="single-file-label">
                         <span class="font-semibold">Size:</span>&nbsp;{{ $file->size }}
                     </div>
 
                     <div
-                        class="flex items-center w-full px-4 rounded md:w-1/2 bg-gray-50 hover:cursor-pointer hover:shadow-sm h-14 hover:bg-gray-100">
+                        class="single-file-label">
 
                         <span class="font-semibold">Extension:</span>&nbsp;{{ $file->extension }}
                     </div>
 
                     <div
-                        class="flex items-center w-full px-4 rounded md:w-1/2 bg-gray-50 hover:cursor-pointer hover:shadow-sm h-14 hover:bg-gray-100">
+                        class="single-file-label">
                         <span class="font-semibold">Updated:</span>&nbsp;{{ explode(' ', $file->updated_at)[0] }}
                     </div>
 
@@ -76,7 +76,7 @@
 
             <div class="px-2 pb-4 mx-auto" x-data="{ copied: 0 }">
 
-                <h2 class="mt-4 text-lg font-semibold text-gray-500 md:mt-6 lg:mt-8">File Download Link
+                <h2 class="single-file-h2">File Download Link
                     &nbsp;<span x-cloak id="copy-message" x-show="copied" x-transition
                         class="w-full text-xs text-green-600">Link
                         Copied!</span>
@@ -102,8 +102,8 @@
 
             @if($file->user_id == Auth::User()->id)
 
-            <div class="px-2 pb-4 mx-auto border-t" x-data="{ show: false }">
-                <h2 class="mt-4 text-lg font-semibold text-gray-500 md:mt-6 lg:mt-8">File Options</h2>
+            <div class="px-2 pb-4 mx-auto border-t dark:border-gray-600" x-data="{ show: false }">
+                <h2 class="single-file-h2">File Options</h2>
 
                 <div class="flex flex-wrap items-center my-5 space-x-5" x-on:click="show=!show" type="button"
                     data-modal-toggle="popup-modal">
@@ -152,7 +152,7 @@
                                         Yes, I'm sure
                                     </button>
                                     <a x-on:click="show=false"
-                                        class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600 cursor-pointer">No,
+                                        class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600 cursor-pointer">No,
                                         cancel</a>
 
                                 </form>
@@ -178,7 +178,7 @@
             }, 5000);
         </script>
     </div>
-    <div class="hidden w-1/4 h-screen p-4 bg-white rounded lg:block">
+    <div class="single-file-sidebar">
         @livewire('ads.responsive')
             </div>
 

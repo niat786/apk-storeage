@@ -3,23 +3,59 @@
 @tailwind utilities;
 
 .button {
-    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-indigo-700/30 bg-gradient-to-tr from-indigo-600 to-indigo-500
+    @apply px-3 py-2 my-2 text-white rounded shadow-md dark:text-gray-300 hover:bg-gradient-to-l shadow-indigo-700/30 bg-gradient-to-tr from-indigo-600 to-indigo-500;
 }
 .button-white {
-    @apply px-3 py-2 my-2 text-purple-700 bg-white hover:bg-gray-100 rounded shadow-md
+    @apply px-3 py-2 my-2 text-purple-700 bg-white rounded shadow-md hover:bg-gray-100;
 }
 .button-green {
-    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-green-700/30 bg-gradient-to-tr from-green-600 to-green-500
+    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-green-700/30 bg-gradient-to-tr from-green-600 to-green-500;
 }
 .button-orange {
-    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-orange-700/30 bg-gradient-to-tr from-orange-600 to-orange-500
+    @apply px-3 py-2 my-2 text-white rounded shadow-md hover:bg-gradient-to-l shadow-orange-700/30 bg-gradient-to-tr from-orange-600 to-orange-500;
 }
 .input-field {
-    @apply w-full p-3 my-4 border-gray-300 rounded-lg md:w-1/2 dark:border-gray-500 hover:ring-0 focus:ring-0
+    @apply w-full p-3 my-4 border-gray-300 rounded-lg dark:bg-gray-800 dark:text-gray-300 md:w-1/2 dark:border-gray-500 hover:ring-0 focus:ring-0;
 }
 .error-message {
-    @apply my-2 text-rose-600
+    @apply my-2 text-rose-600;
 }
-#pagination  p{
-    @apply mx-5
+#pagination p {
+    @apply mx-5;
+}
+
+.upload-files-card {
+    @apply overflow-hidden bg-white shadow-xl sm:rounded-lg dark:bg-gray-600 dark:text-gray-300;
+}
+
+.files-upper-div {
+    @apply container p-4 mx-auto my-4 bg-white dark:bg-gray-700 rounded-xl;
+}
+.files-grid-view {
+    @apply container p-4 mx-auto bg-white dark:bg-gray-700 dark:text-gray-200 rounded-xl;
+}
+.search-input {
+    @apply w-full p-2 border-gray-200 rounded-lg dark:border-gray-800 focus:ring-0 dark:bg-gray-800;
+}
+.each-file-in-grid {
+    @apply flex w-full gap-2 px-3 py-2 rounded md:w-1/2 hover:shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800;
+}
+.single-file-container {
+    @apply container p-4 mx-auto my-4 text-gray-600 bg-white rounded-xl dark:bg-gray-700 dark:text-gray-300;
+}
+.single-file-label {
+    @apply flex items-center w-full px-4 rounded md:w-1/2 bg-gray-50 hover:cursor-pointer hover:shadow-sm h-14 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-600;
+}
+.single-file-sidebar {
+    @apply hidden w-1/4 h-screen p-4 rounded dark:bg-transparent lg:block;
+}
+.single-file-name {
+    @apply flex items-center gap-3 my-4 text-xl font-semibold;
+}
+.single-file-h2 {
+    @apply pb-4 mt-4 text-lg font-semibold md:mt-6 lg:mt-8;
+}
+
+.store-dropdown {
+    @apply w-full p-2 border-gray-200 rounded-lg focus:ring-0 dark:bg-gray-800 dark:border-gray-700;
 }

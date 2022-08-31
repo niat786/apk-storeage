@@ -9,6 +9,7 @@ use App\Http\Controllers\FileStoreController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,13 @@ Route::prefix('account')->middleware('auth')->group(function () {
 
 Route::prefix('blog')->group(function(){
     Route::get('/', [BlogController::class, 'index']);
+});
+
+Route::prefix('page')->group(function(){
+    Route::get('about-us', [PagesController::class, 'about_us']);
+    Route::get('contact-us', [PagesController::class, 'contact_us']);
+    Route::get('disclaimer', [PagesController::class, 'disclaimer']);
+    Route::get('privacy-policy', [PagesController::class, 'privacy_policy']);
 });
 
 

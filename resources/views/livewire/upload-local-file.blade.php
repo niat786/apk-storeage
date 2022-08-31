@@ -1,7 +1,7 @@
-<div class="py-12">
-    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-            <div class="p-6 bg-white border-b border-gray-200 sm:px-20">
+<div class="py-12 dark:bg-gray-800">
+    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8 ">
+        <div class="upload-files-card">
+            <div class="p-6 bg-white border-gray-200 sm:px-20 dark:bg-gray-700 dark:text-gray-300">
                 <div class="mt-4 text-2xl">
                     Upload Your Files and Share With Anyone!
                 </div>
@@ -9,7 +9,7 @@
 
                 <p class="p-4 rounded text-rose-600 bg-rose-100"> {{ Session::get( 'error' ) }}</p>
                 @endif
-                <div class="mt-6 text-gray-500">
+                <div class="mt-6 text-gray-500 dark:text-gray-300">
                     <ul class="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
                         <li class="mr-2">
                             <span
@@ -43,14 +43,14 @@
                         </li>
                     </ul>
 
-                    <div class="my-6">
+                    <div class="my-6 ">
                         <form wire:submit.prevent="save">
-                            <h2 class="text-xl">Select Files From Your Device</h2>
+                            <h2 class="text-xl dark:text-gray-300">Select Files From Your Device</h2>
 
                             <div class="my-5 group">
                                 <div class="w-full">
                                     <div class="w-full">
-                                        <select id="domainID" wire:model="domainID" class="input-field" required>
+                                        <select id="domainID" wire:model="domainID" class="input-field dark:text-gray-600" required>
                                             @forelse ($domains_list as $domain)
                                                 <option value="{{ $domain->id }}">{{ $domain->name }}</option>
                                             @empty
@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="w-full">
-                                        <select id="b2ID" wire:model="B2AccountID" class="input-field" required>
+                                        <select id="b2ID" wire:model="B2AccountID" class="input-field dark:text-gray-600" required>
                                             @forelse ($B2Accounts as $account)
                                                 <option value="{{ $account->id }}">{{ $account->bucket_name }}</option>
                                             @empty

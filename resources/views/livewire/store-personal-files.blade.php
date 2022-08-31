@@ -1,13 +1,13 @@
 <div  x-data="{show_spinner:false}">
-    <div class="container p-4 mx-auto my-4 bg-white rounded-xl">
+    <div class="files-upper-div">
 
 
-        <div class="flex flex-col justify-end text-gray-500 lg:flex-row xl:max-w-7xl md:gap-4">
+        <div class="flex flex-col justify-end text-gray-500 lg:flex-row xl:max-w-7xl md:gap-4 ">
 
 
 
                 <div class="flex w-full my-1 lg:w-1/6" >
-                    <select x-on:change="show_spinner = true" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0" wire:model="storeType">
+                    <select x-on:change="show_spinner = true" class="store-dropdown" wire:model="storeType">
                         <option value="my_files">My Files</option>
                         <option value="public_store">Public Store</option>
                     </select>
@@ -15,7 +15,7 @@
 
             <div class="flex w-full my-1 lg:w-1/6">
 
-                <select x-on:change="show_spinner = true" wire:model="category" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0">
+                <select x-on:change="show_spinner = true" wire:model="category" class="store-dropdown">
                     <option value="">Show All</option>
                     <option value="app">Apps</option>
                     <option value="pdf">PDF Files</option>
@@ -27,7 +27,7 @@
             <div class="flex w-full my-1 lg:w-1/4">
 
                 <input type="search" placeholder="search" wire:model.debounce.1000ms="search"
-                    class="w-full p-2 border-gray-200 rounded-lg focus:ring-0 ">
+                    class="search-input">
 
             </div>
 
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="container p-4 mx-auto bg-white rounded-xl">
+    <div class="files-grid-view">
         @if (session('success'))
         <p class="p-2 text-green-600">{{ session('success') }}</p>
     @endif
@@ -62,7 +62,7 @@
             @forelse ($all_files as $index => $file)
             <span x-init="show_spinner = false"></span>
                 <a href="{{ url('show', ['id' => $file->id]) }}"
-                    class="flex w-full gap-2 px-3 py-2 rounded md:w-1/2 hover:shadow-sm hover:bg-gray-100">
+                    class="each-file-in-grid">
                     {{-- <span class="px-2 text-xs text-gray-600 ">
                         {{ $index + 1 }}
                         @if ($index + 1 < 10)

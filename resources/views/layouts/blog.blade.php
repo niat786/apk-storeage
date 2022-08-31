@@ -2,12 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('layouts.partials.header')
 
-<body class="font-sans antialiased">
-
-    <div class="min-h-screen bg-gray-100 ">
+<body class="dark:bg-gray-800">
+    <div class="min-h-screen">
         <div class="py-10">
             @include('layouts.partials.navbar')
         </div>
+
+
 
         <main>
             @yield('content')

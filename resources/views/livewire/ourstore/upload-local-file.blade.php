@@ -1,7 +1,7 @@
 <div class="py-12">
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
-            <div class="p-6 bg-white border-b border-gray-200 sm:px-20">
+        <div class="upload-files-card">
+            <div class="p-6 bg-white border-gray-200 dark:bg-gray-700 sm:px-20">
                 <div class="mt-4 text-2xl">
                     Upload Your Files and Share With Anyone!
                 </div>
@@ -41,7 +41,7 @@
 
                     <div class="my-6">
                         <form wire:submit.prevent="save">
-                            <h2 class="text-xl">Select Files From Your Device</h2>
+                            <h2 class="text-xl dark:text-gray-300">Select Files From Your Device</h2>
                             <div class="my-5 group">
                                 <div class="w-full">
                                     {{-- <select wire:model="domainID" class="input-field">

@@ -3,9 +3,9 @@
 
 @include('layouts.partials.header')
 
-<body class="font-sans antialiased">
+<body class="dark:bg-gray-800">
 
-    <div class="min-h-screen bg-gray-100 ">
+    <div class="min-h-screen bg-gray-200 dark:bg-gray-800 ">
         <div class="py-10">
             <nav x-data="{ show_mobile_menu: false }" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">

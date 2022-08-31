@@ -1,6 +1,6 @@
 <nav x-data="{ show_mobile_menu: false }" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
-        <a href="/" class="flex items-center text-white">
+        <a href="/" class="flex items-center text-white dark:text-gray-200">
             <img width="140" src="{{ asset('APKeve-logo/logo.webp') }}" class="block h-auto w-2/10" alt="logo">
 
             {{-- <img src="{{ asset('/images/logo.svg') }}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo"> --}}
@@ -8,13 +8,13 @@
         </a>
         <div class="flex items-center md:order-2">
 
-            <a href="{{ url('download/files') }}" class="mx-2 text-sm text-white">Public Files</a>
+            <a href="{{ url('download/files') }}" class="mx-2 text-sm text-white dark:text-gray-200">Public Files</a>
             @auth
-                <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white">Upload Files</a>
+                <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white dark:text-gray-200">Upload Files</a>
             @endauth
             @guest
-                <a href="{{ route('login') }}" class="mx-2 text-sm text-white">Login</a>
-                <a href="{{ route('register') }}" class="mx-2 text-sm text-white">Signup</a>
+                <a href="{{ route('login') }}" class="mx-2 text-sm text-white dark:text-gray-200">Login</a>
+                <a href="{{ route('register') }}" class="mx-2 text-sm text-white dark:text-gray-200">Signup</a>
 
             @endguest
 
@@ -38,12 +38,12 @@
             <ul class="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:p-0"
+                        class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded dark:text-gray-200 md:bg-transparent md:p-0"
                         aria-current="page">Home</a>
                 </li>
                 <li>
                     <a href="#"
-                        class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Public
+                        class="block py-2 pl-3 pr-4 text-white rounded dark:text-gray-200 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Public
                         Files</a>
                 </li>
 

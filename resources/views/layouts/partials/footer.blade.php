@@ -7,15 +7,16 @@
         </a>
         <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-400 sm:mb-0 dark:text-gray-400">
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                <a href="{{ url('page/about-us') }}" class="mr-4 hover:underline md:mr-6 ">About</a>
             </li>
             <li>
-                <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                <a href="{{ url('page/privacy-policy') }}" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
             </li>
-
             <li>
-                <a href="#" class="hover:underline">Contact</a>
-
+                <a href="{{ url('page/contact-us') }}" class="mr-4 hover:underline md:mr-6">Contact</a>
+            </li>
+              <li>
+                <a href="{{ url('page/disclaimer') }}" class="mr-4 hover:underline md:mr-6">Disclaimer</a>
             </li>
         </ul>
     </div>

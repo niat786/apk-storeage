@@ -14,7 +14,7 @@
                 <h2 class="text-3xl font-semibold tracking-wide text-center text-white sm:text-4xl">
                     Uploading And Sharing Files in cloud is Even Simple!</h2>
                 <p class="w-full p-2 mx-auto mt-4 tracking-wider text-center text-white ">Upload files from your device
-                    or use a URL. Our service will generate a download link as a subdomain your primary domain.</p>
+                    or use a URL. Our service will generate a download link for your website.</p>
                 <div class="flex justify-center w-full">
                     @auth
                         <a href="{{ route('dashboard') }}" class="button-white">Upload Files</a>
@@ -40,7 +40,7 @@
 
             <div
                 class="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
-                <h1 class="mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl">Add Your Domain & Subdomain
+                <h1 class="mb-4 text-3xl font-medium text-gray-500 title-font sm:text-4xl">Add Your Domain & Subdomain
                     <br class="hidden lg:inline-block">Generate download links
                 </h1>
                 <p class="mb-8 leading-relaxed">To get readable download links for files on your website, use your
@@ -70,7 +70,7 @@
             </div>
             <div
                 class="flex flex-col items-center text-center lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">
-                <h1 class="mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl">Connect Your Backblaze
+                <h1 class="mb-4 text-3xl font-medium text-gray-500 title-font sm:text-4xl">Connect Your Backblaze
                     Account
 
                 </h1>
@@ -92,7 +92,7 @@
 
     <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
-            <h1 class="mb-20 text-2xl font-medium text-center text-gray-900 sm:text-3xl title-font">
+            <h1 class="mb-20 text-2xl font-medium text-center text-gray-500 sm:text-3xl title-font">
                 Best Features
             </h1>
             <div class="flex flex-wrap -mx-4 -mt-4 -mb-10 space-y-6 sm:-m-4 md:space-y-0">
@@ -106,7 +106,7 @@
                         </svg>
                     </div>
                     <div class="flex-grow pl-6">
-                        <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">
+                        <h2 class="mb-2 text-lg font-medium text-gray-500 title-font">
                             Readable download links
                         </h2>
                         <p class="text-base leading-relaxed">You will be able to generate download links for your files
@@ -126,7 +126,7 @@
                         </svg>
                     </div>
                     <div class="flex-grow pl-6">
-                        <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">
+                        <h2 class="mb-2 text-lg font-medium text-gray-500 title-font">
                             Saves your bandwidth
                         </h2>
                         <p class="text-base leading-relaxed">If you only have a limited amount of storage space, you
@@ -145,7 +145,7 @@
                         </svg>
                     </div>
                     <div class="flex-grow pl-6">
-                        <h2 class="mb-2 text-lg font-medium text-gray-900 title-font">Easy file management</h2>
+                        <h2 class="mb-2 text-lg font-medium text-gray-500 title-font">Easy file management</h2>
                         <p class="text-base leading-relaxed">Keep track of files and make changes as needed. You can
                             easily view, update, and delete files.</p>
 

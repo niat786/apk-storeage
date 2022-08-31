@@ -2,19 +2,19 @@
 
 @section('content')
 <div>
-    <div class="container p-4 mx-auto my-4 bg-white rounded-xl">
+    <div class="files-upper-div">
         <div class="flex flex-col justify-end text-gray-500 lg:flex-row xl:max-w-7xl md:gap-4">
 
 
             <div class="flex w-full my-1 lg:w-1/4">
 
                 <input type="search" placeholder="search" wire:model.debounce.1000ms="search"
-                    class="w-full p-2 border-gray-200 rounded-lg focus:ring-0 ">
+                    class="search-input">
 
             </div>
         </div>
     </div>
-    <div class="container p-4 mx-auto bg-white rounded-xl">
+    <div class="files-grid-view">
         @livewire('ads.responsive')
 
 
@@ -22,7 +22,7 @@
 
             @forelse ($files as $index => $file)
                 <a href="{{ url('download/show', ['id' => $file->id]) }}"
-                    class="flex w-full gap-2 px-3 py-2 rounded md:w-1/2 hover:shadow-sm hover:bg-gray-100">
+                    class="each-file-in-grid">
 
                     @php
                         $ext = explode('.', $file->name);
