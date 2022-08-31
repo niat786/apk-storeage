@@ -60,7 +60,7 @@
                 @php
                 $link = $file->download_link;
                 if($file->b2_account_type == 'public') {
-                    $link = "https://apkeve.com/download/files/".$file->user_id."/".$file->name;
+                    $link = "https://apkeve.com/download-file/files/".$file->user_id."/".$file->name;
                 }
                 @endphp
 

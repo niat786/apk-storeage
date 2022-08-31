@@ -71,7 +71,7 @@ public $B2AccountID =0;
 
         // $domain_info = Domain::where('id', $this->domainID)->where('user_id', $this->user_id)->first();
         // $d_link = 'https://'.$domain_info->subdomain.'.'.$domain_info->name.'/'.$name;
-        $d_link = 'https://download.apkeve.com/'.$name;
+        $d_link ="https://apkeve.com/download-file/files/".Auth::User()->id."/".$name;
 
             $filemeta = new FileMeta;
 

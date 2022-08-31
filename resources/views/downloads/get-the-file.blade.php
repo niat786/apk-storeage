@@ -15,7 +15,7 @@
                 <p>The session of this page is expired please refresh now</p>
                 <div class="downloadbtn">
 
-                    <a class="text-sm button-orange" href="{{ url('download/files', ['u' => $u, 'f' => $f]) }}">Refresh the
+                    <a class="text-sm button-orange" href="{{ url('download-file/files', ['u' => $u, 'f' => $f]) }}">Refresh the
                         page</a>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <div class="hidden p-4 text-2xl text-gray-600" id="d-heading">
                         Downloading will start in <span id="timer"></span> seconds.
                     </div>
-                    <span id="link" class="hidden">Still Not downloading? <a href="{{ url('download', [$u, $f]) }}"
+                    <span id="link" class="hidden">Still Not downloading? <a href="{{ url('download-file', [$u, $f]) }}"
                             class="text-green-700">Click here </a> to download manually</span>
                 </div>
             </div>
@@ -94,7 +94,7 @@
                             lnk.classList.remove('hidden');
                             clearInterval(interval);
                             // return 0;
-                            window.location.href = "{{ url('download', [$u, $f]) }}";
+                            window.location.href = "{{ url('download-file', [$u, $f]) }}";
                         }
                     }, 1200);
 
