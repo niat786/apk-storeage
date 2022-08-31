@@ -21,7 +21,7 @@
         <div class="flex flex-wrap">
 
             @forelse ($files as $index => $file)
-                <a href="{{ url('download/show', ['id' => $file->id]) }}"
+                <a href="{{ url('download-file/show', ['id' => $file->id]) }}"
                     class="each-file-in-grid">
 
                     @php
