@@ -14,7 +14,7 @@
                     </a>
                     <div class="flex my-2 md:order-2">
 
-                        <a href="{{ url('download/files') }}" class="mx-2 text-sm text-white">Public Files</a>
+                        <a href="{{ url('download-file/files') }}" class="mx-2 text-sm text-white">Public Files</a>
                         <a href="{{ url('my-files') }}" class="mx-2 text-sm text-white">My Files</a>
                         @auth
                             <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white">Upload</a>

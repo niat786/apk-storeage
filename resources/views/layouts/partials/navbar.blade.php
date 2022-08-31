@@ -8,7 +8,7 @@
         </a>
         <div class="flex items-center md:order-2">
 
-            <a href="{{ url('download/files') }}" class="mx-2 text-sm text-white dark:text-gray-200">Public Files</a>
+            <a href="{{ url('download-file/files') }}" class="mx-2 text-sm text-white dark:text-gray-200">Public Files</a>
             @auth
                 <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white dark:text-gray-200">Upload Files</a>
             @endauth
