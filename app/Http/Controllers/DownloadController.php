@@ -45,7 +45,7 @@ class DownloadController extends Controller
     public function download_file($user_id = 0, $file_name = '')
     {
         // https://dl.apkeve.com/file/apkeve/file.pdf
-        $subdomains = ['qwctoscend', 'ooddnsheck', 'kendoswcod', 'soendkeosk', 'hdowneksic', 'osdocensod'];
+        $subdomains = ['qwctoscenda', 'ooddnshecka', 'kendoswcoda', 'soendkeoska', 'hdowneksica', 'osdocensoda'];
         $subdomain = $subdomains[rand(0,5)];
         $download_link = "https://".$subdomain.".apkeve.com/file/public-file/".$file_name;
         return redirect()->to($download_link);
