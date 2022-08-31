@@ -8,6 +8,7 @@ use App\Http\Controllers\OurStoreController;
 use App\Http\Controllers\FileStoreController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,10 @@ Route::prefix('account')->middleware('auth')->group(function () {
     Route::put('update-domain', [DomainController::class, 'update_domain']);
     Route::delete('delete-domain', [DomainController::class, 'delete_domain']);
     Route::delete('delete-bucket', [DomainController::class, 'delete_bucket']);
+});
+
+Route::prefix('blog')->group(function(){
+    Route::get('/', [BlogController::class, 'index']);
 });
 
 

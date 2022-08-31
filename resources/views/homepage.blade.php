@@ -1,102 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ApkEve - Free file uploading & download link generator for your domain</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png')}} ">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png')}} ">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png')}} ">
-    <link rel="manifest" href="{{asset('favicons/site.webmanifest')}}">
-    <link rel="mask-icon" href="{{asset('safari-pinned-tab.svg')}}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
-    {{-- meta tags --}}
-    <meta name="title" content="ApkEve - Free file uploading & download link generator for your domain">
-    <meta name="description" content="Upload files and generate their download links as a subdomain of your primary domain. Connect Backblaze account and create downloadable links of files for free.">
-    <meta name="keywords" content="GUI to Upload files to cloud storage, Upload files & generate downloadable links, Generate download links as a subdomain">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
-    {{-- meta tags end --}}
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    @include('scripts/analytics')
-
-</head>
+@include('layouts.partials.header')
 
 <body>
     <div>
-        <nav x-data="{ show_mobile_menu: false }" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
-            <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="https://apkeve.com/" class="flex items-center text-white">
-                    <img width="140" src="{{ asset('APKeve-logo/logo.webp') }}" class="block h-auto w-2/10" alt="logo">
-
-                    {{-- <img src="{{ asset('/images/logo.svg') }}" class="w-auto h-8 ml-3 mr-2 sm:h-9" alt="site Logo"> --}}
-                    {{-- <span class="self-center text-xl font-semibold text-white whitespace-nowrap">Files</span> --}}
-                </a>
-                <div class="flex items-center md:order-2">
-
-                    <a href="{{ url('download/files') }}" class="mx-2 text-sm text-white">Public Files</a>
-                    @auth
-                        <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white">Upload Files</a>
-                    @endauth
-                    @guest
-                        <a href="{{ route('login') }}" class="mx-2 text-sm text-white">Login</a>
-                        <a href="{{ route('register') }}" class="mx-2 text-sm text-white">Signup</a>
-
-                    @endguest
-
-                    <button x-on:click="show_mobile_menu = !show_mobile_menu" data-collapse-toggle="navbar-sticky"
-                        type="button"
-                        class="items-center hidden p-2 text-sm text-gray-500 rounded-lg inline-flexs md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-sticky" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-
-                <div x-transition x-on:click.away="show_mobile_menu = false" x-show="show_mobile_menu"
-                    :class="'show_mobile_menu' ?? 'hidden'"
-                    class="items-center justify-between w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                    <ul
-                        class="flex flex-col p-4 mt-4 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium ">
-                        <li>
-                            <a href="#"
-                                class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:p-0"
-                                aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 pl-3 pr-4 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Public
-                                Files</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        @include('layouts.partials.navbar')
     </div>
 
-    <div
-        class="flex items-center w-full h-screen p-5 lg:h-screen bg-gradient-to-tr from-purple-700 to-purple-300 pt-44">
+    <div class="flex items-center w-full h-screen p-5 lg:h-screen bg-gradient-to-tr from-purple-700 to-purple-300 pt-44">
         <div class="container flex flex-wrap mx-auto">
 
             <div class="mx-auto md:w-1/2 md:p-10">
-                <h2 class="text-3xl font-semibold tracking-wide text-center text-white sm:text-4xl">Upload File and Get
-                    Download Link
-                    As a Subdomain of Your Site</h2>
+                <h2 class="text-3xl font-semibold tracking-wide text-center text-white sm:text-4xl">
+                    Uploading And Sharing Files in cloud is Even Simple!</h2>
                 <p class="w-full p-2 mx-auto mt-4 tracking-wider text-center text-white ">Upload files from your device
-                    or use a URL. Our service will generate a download link for your domain.</p>
+                    or use a URL. Our service will generate a download link as a subdomain your primary domain.</p>
                 <div class="flex justify-center w-full">
                     @auth
                         <a href="{{ route('dashboard') }}" class="button-white">Upload Files</a>
@@ -148,8 +66,7 @@
     <section class="text-gray-600 bg-gray-100 body-font">
         <div class="container flex flex-col items-center px-5 py-24 mx-auto md:flex-row">
             <div class="w-5/6 mb-10 lg:max-w-lg lg:w-full md:w-1/2 md:mb-0">
-                <img class="object-cover object-center rounded" alt="hero"
-                    src="{{ asset('/images/connect.svg') }}">
+                <img class="object-cover object-center rounded" alt="hero" src="{{ asset('/images/connect.svg') }}">
             </div>
             <div
                 class="flex flex-col items-center text-center lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 md:items-start md:text-left">
@@ -243,32 +160,7 @@
 
     {{-- footer --}}
 
-    <footer class="p-4 bg-gray-900 shadow md:px-6 md:py-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <a href="https://apkeve.com/" class="flex items-center mb-4 sm:mb-0">
-                <img width="150" src="{{ asset('APKeve-logo/logo-light.webp') }}" class="w-auto h-10 ml-3 mr-2 sm:h-9" alt="site Logo">
-                {{-- <span class="self-center text-2xl font-semibold text-gray-400 whitespace-nowrap">Files</span> --}}
-            </a>
-            <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-400 sm:mb-0 dark:text-gray-400">
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
-                </li>
-                <li>
-                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <hr class="my-6 border-gray-500 sm:mx-auto dark:border-gray-700 lg:my-8">
-        <span class="block text-sm text-gray-400 sm:text-center">© 2022 <a href="https://apkeve.com/"
-                class="hover:underline">ApkEve™</a>. All Rights Reserved.
-        </span>
-    </footer>
+    @include('layouts.partials.footer')
 
 </body>
 

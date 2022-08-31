@@ -1,35 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>ApkEve - Free file uploading & download link generator for your domain</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png')}} ">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png')}} ">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png')}} ">
-    <link rel="manifest" href="{{asset('favicons/site.webmanifest')}}">
-    <link rel="mask-icon" href="{{asset('safari-pinned-tab.svg')}}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-
-    {{-- meta tags --}}
-    <meta name="title" content="ApkEve - Free file uploading & download link generator for your domain">
-    <meta name="description" content="Upload files and generate their download links as a subdomain of your primary domain. Connect Backblaze account and create downloadable links of files for free.">
-    <meta name="keywords" content="GUI to Upload files to cloud storage, Upload files & generate downloadable links, Generate download links as a subdomain">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="English">
-    {{-- meta tags end --}}
-
-    @include('scripts/analytics')
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Styles -->
-    @livewireStyles
-</head>
+@include('layouts.partials.header')
 
 <body class="font-sans antialiased">
 
@@ -37,7 +9,7 @@
         <div class="py-10">
             <nav x-data="{ show_mobile_menu: false }" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
-                    <a href="https://apkeve.com/" class="flex items-center text-white">
+                    <a href="/" class="flex items-center text-white">
                         <img width="150" src="{{ asset('APKeve-logo/logo.webp') }}" class="w-auto h-10 ml-3 mr-2 sm:h-9" alt="site Logo">
                     </a>
                     <div class="flex my-2 md:order-2">
@@ -94,6 +66,8 @@
         </main>
     </div>
 
-    @livewireScripts
+    @include('layouts.partials.footer')
+    @livewireScripts()
+
 </body>
 </html>

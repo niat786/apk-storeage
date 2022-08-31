@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'ApkEve') }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ApkEve - Free file uploading & download link generator for your domain</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }} ">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }} ">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }} ">
@@ -25,44 +22,8 @@
     <meta name="language" content="English">
     {{-- meta tags end --}}
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     @include('scripts/analytics')
 
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Styles -->
-    @livewireStyles
-    <style>
-        [x-cloak] {
-            display: none;
-        }
-    </style>
 </head>
-
-<body class="font-sans antialiased">
-    <x-jet-banner />
-
-    <div class="min-h-screen bg-gray-100">
-        @livewire('navigation-menu')
-
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
-
-        <!-- Page Content -->
-        <main>
-            @yield('content')
-        </main>
-    </div>
-
-    @stack('modals')
-    @include('layouts.partials.footer')
-    @livewireScripts()
-
-</body>
-
-</html>

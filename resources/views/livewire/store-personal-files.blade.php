@@ -1,24 +1,21 @@
-<div>
+<div  x-data="{show_spinner:false}">
     <div class="container p-4 mx-auto my-4 bg-white rounded-xl">
-        <div class="flex flex-col justify-end text-gray-500 lg:flex-row xl:max-w-7xl md:gap-4">
-            @auth
-                <div class="flex w-full my-1 lg:w-1/6">
-                    {{-- <label class="flex items-center text-indigo-600 w-[150px]">Select Files:</label> --}}
 
-                    <select class="w-full p-2 border-gray-200 rounded-lg focus:ring-0" wire:model="storeType">
+
+        <div class="flex flex-col justify-end text-gray-500 lg:flex-row xl:max-w-7xl md:gap-4">
+
+
+
+                <div class="flex w-full my-1 lg:w-1/6" >
+                    <select x-on:change="show_spinner = true" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0" wire:model="storeType">
                         <option value="my_files">My Files</option>
                         <option value="public_store">Public Store</option>
-
                     </select>
                 </div>
-            @endauth
+
             <div class="flex w-full my-1 lg:w-1/6">
 
-
-                {{-- <label class="flex items-center text-indigo-600 w-[150px]">Files Type:</label> --}}
-
-                <select wire:model="category" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0">
-
+                <select x-on:change="show_spinner = true" wire:model="category" class="w-full p-2 border-gray-200 rounded-lg focus:ring-0">
                     <option value="">Show All</option>
                     <option value="app">Apps</option>
                     <option value="pdf">PDF Files</option>
@@ -32,6 +29,12 @@
                 <input type="search" placeholder="search" wire:model.debounce.1000ms="search"
                     class="w-full p-2 border-gray-200 rounded-lg focus:ring-0 ">
 
+            </div>
+
+            <div x-show="show_spinner" class="flex items-center justify-center m-2 ">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
             </div>
         </div>
     </div>
@@ -56,8 +59,8 @@
             @endif
 
 
-
             @forelse ($all_files as $index => $file)
+            <span x-init="show_spinner = false"></span>
                 <a href="{{ url('show', ['id' => $file->id]) }}"
                     class="flex w-full gap-2 px-3 py-2 rounded md:w-1/2 hover:shadow-sm hover:bg-gray-100">
                     {{-- <span class="px-2 text-xs text-gray-600 ">
@@ -109,6 +112,8 @@
                     <span class="truncate text-ellipsis text-start">{{ $file->name }}</span>
                 </a>
                 @empty
+                <span x-init="show_spinner = false"></span>
+
                     <div class="mx-auto">
                         <h2 class="py-4 text-2xl text-gray-500">No Files To Show</h2>
                     </div>
