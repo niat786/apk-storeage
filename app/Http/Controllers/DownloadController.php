@@ -10,6 +10,10 @@ use DB;
 
 class DownloadController extends Controller
 {
+    public function redirect_download_page($id, $name) {
+        return redirect()->to("https://apkeve.com/download-file/files/$id/$name");
+    }
+
     public function all_files()
     {
         $files = FileMeta::where('b2_account_type', 'public')->paginate(20);

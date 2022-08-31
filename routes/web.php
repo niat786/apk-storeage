@@ -32,6 +32,10 @@ Route::prefix('admin')->group(function () {
     Route::get('public-files', [AdminController::class, 'public_files'])->middleware('auth')->name('public-files');
 });
 
+Route::prefix('download')->group(function () {
+    Route::get('files/{id}/{name}', [DownloadController::class, 'redirect_download_page']);
+
+});
 Route::prefix('download-file')->group(function () {
     Route::get('files', [DownloadController::class, 'all_files']);
     Route::get('show/{id}', [DownloadController::class, 'show_single_file']);
