@@ -29,7 +29,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::get('users', [AdminController::class, 'users'])->middleware('auth')->name('users');
     Route::get('files', [AdminController::class, 'files'])->middleware('auth')->name('files');
-    Route::get('public-files', [AdminController::class, 'public_files'])->middleware('auth')->name('public-files');
+    //Route::get('public-files', [AdminController::class, 'public_files'])->middleware('auth')->name('public-files');
 });
 
 
@@ -102,8 +102,8 @@ Route::get('public-files/{category?}', [FileStoreController::class, 'public_file
 
 
 // our store
-Route::get('store/upload-online-file', [OurStoreController::class, 'upload_online_file'])->middleware('auth');
-Route::get('store/upload-local-file', [OurStoreController::class, 'upload_local_file'])->middleware('auth');
+//Route::get('store/upload-online-file', [OurStoreController::class, 'upload_online_file'])->middleware('auth');
+//Route::get('store/upload-local-file', [OurStoreController::class, 'upload_local_file'])->middleware('auth');
 
 
 Route::middleware([

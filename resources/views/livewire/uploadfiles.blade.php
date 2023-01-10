@@ -1,6 +1,6 @@
 <div class="container max-w-6xl mx-auto my-12 overflow-hidden rounded-lg shadow-lg ">
 
-    <div class="flex justify-start p-6 bg-white border-b border-gray-200 dark:border-gray-600 dark:bg-gray-700">
+    {{-- <div class="flex justify-start p-6 bg-white border-b border-gray-200 dark:border-gray-600 dark:bg-gray-700">
 
         <div class="flex items-center mt-4 text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-violet-600 dark:text-purple-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
@@ -47,19 +47,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
 
-    <div class="flex justify-start p-6 bg-white border-t border-b border-gray-200 dark:border-gray-600 dark:bg-gray-700">
+    <div class="flex justify-start p-6 bg-white border-b border-gray-200 dark:border-gray-600 dark:bg-gray-700">
 
-        <div class="flex items-center mt-4 text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-violet-600 dark:text-purple-500">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="text-pink-600 dark:text-purple-500"
-                viewBox="0 0 16 16">
+        <div class="flex items-center mt-4 text-lg font-semibold dark:text-gray-50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                class="text-pink-600 dark:text-purple-500" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                 <path fill-rule="evenodd"
                     d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-            </svg>&nbsp;Upload To Your Own Backblaze Account
+            </svg>&nbsp;Upload Files to Your Backblaze Account
         </div>
 
     </div>

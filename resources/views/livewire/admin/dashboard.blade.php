@@ -10,7 +10,7 @@
                 <ul class="mt-4 space-y-2">
 
                     <li><a href="{{ url('admin/files') }}">All Files</a></li>
-                    <li><a href="{{ url('admin/public-files') }}">Public Files</a></li>
+                    {{-- <li><a href="{{ url('admin/public-files') }}">Public Files</a></li> --}}
                 </ul>
             </div>
             <div class="w-full md:w-3/4">
