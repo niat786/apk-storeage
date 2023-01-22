@@ -85,7 +85,9 @@ class UploadOnlineFile extends Component
                 'FileName' => $file_name,
                 'Body' => fopen(public_path($file_name), 'r')
             ]);
+           
                 } catch (ClientException $e) {
+                     File::delete($file_name);
                     return redirect()->to('/upload-online-file')->with('error', 'Your Backblaze credentials are incorrect!');
                 }
 

@@ -76,12 +76,16 @@
                 let lnk = document.getElementById('link');
                 let dheading = document.getElementById('d-heading');
                 let dbtnspan = document.getElementById('dbtn-span');
-                let countdown_time = 20;
+                let countdown_time = 1;
                 dbtn.addEventListener('click', () => {
+                    window.location.href = "{{ url('download-file', [$u, $f]) }}";
+                    return;
+
+                    // 
                     if (countdown_time < 20 && countdown_time > 0) {
                         return 0;
                     }
-                    countdown_time = 20
+                    countdown_time = 1
                     dheading.classList.remove('hidden');
 
                     let interval = setInterval(function() {

@@ -93,6 +93,7 @@ class UploadLocalFile extends Component
 
         ]);
         } catch (ClientException $e) {
+              Storage::delete('files/'.$name);
             return redirect()->to('/upload-local-file')->with('error', 'Your Backblaze credentials are incorrect!');
         }
 

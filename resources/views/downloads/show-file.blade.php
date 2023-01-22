@@ -57,7 +57,7 @@
                     dbtn.classList.remove('button');
                     dbtn2.classList.add('hidden');
                     dbtn3.classList.remove('hidden');
-                }, 5000);
+                }, 500);
             });
         </script>
 
