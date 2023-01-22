@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/">
                         <img width="120" src="{{ asset('APKeve-logo/logo-dark-purple.webp') }}"
                             class="block h-auto w-2/10" alt="logo">
                         <!-- <x-jet-application-mark class="block w-auto h-9" /> -->
@@ -14,10 +14,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
-                    {{-- <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-jet-nav-link> --}}
-                    <x-jet-nav-link href="{{ route('upload') }}" :active="request()->routeIs('upload')">
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ url('upload-online-file') }}" :active="request()->routeIs('upload-online-file')">
                         {{ __('Upload Files') }}
                     </x-jet-nav-link>
                     {{-- <x-jet-nav-link href="{{ route('connectb2') }}" :active="request()->routeIs('connectb2')">

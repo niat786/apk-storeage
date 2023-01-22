@@ -8,9 +8,11 @@
         </a>
         <div class="flex items-center md:order-2">
 
-            <a href="{{ url('download-file/files') }}" class="mx-2 text-sm text-white dark:text-gray-200">Public Files</a>
+            <a href="{{ url('download-file/files') }}" class="mx-2 text-sm text-white dark:text-gray-200">Public
+                Files</a>
             @auth
-                <a href="{{ route('dashboard') }}" class="mx-2 text-sm text-white dark:text-gray-200">Upload Files</a>
+                <a href="{{ url('upload-online-file') }}" class="mx-2 text-sm text-white dark:text-gray-200">Upload
+                    Files</a>
             @endauth
             @guest
                 <a href="{{ route('login') }}" class="mx-2 text-sm text-white dark:text-gray-200">Login</a>

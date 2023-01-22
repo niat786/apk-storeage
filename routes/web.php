@@ -81,7 +81,7 @@ Route::get('/upload', function () {
 
 Route::get('/upload-online-file', function () {
     return view('upload-online-files');
-})->middleware('auth');
+})->middleware('auth')->name('upload-online-file');
 
 Route::get('/upload-local-file', function () {
     return view('upload-local-files');
