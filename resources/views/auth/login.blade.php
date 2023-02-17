@@ -15,7 +15,8 @@
 
         <form method="POST" action="{{ route('login') }}">
             <a href="/" class="flex justify-center w-full mx-auto my-4 ">
-                <img width="150" src="{{ asset('APKeve-logo/logo-dark-purple.webp') }}" class="w-auto h-10 sm:h-9" alt="site Logo">
+                <img width="150" src="{{ asset('APKeve-logo/logo-dark-purple.webp') }}" class="w-auto h-10 sm:h-9"
+                    alt="site Logo">
 
             </a>
 
@@ -25,12 +26,14 @@
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')"
+                    required autofocus />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="current-password" />
+                <x-jet-input id="password" class="block w-full mt-1" type="password" name="password" required
+                    autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
@@ -41,11 +44,12 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                {{-- @if (Route::has('password.request'))
-                    <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('password.request') }}">
+                @if (Route::has('password.request'))
+                    <a class="text-sm text-gray-600 underline hover:text-gray-900"
+                        href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif &nbsp; --}}
+                @endif &nbsp;
                 <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('register') }}">
                     {{ __('Create Account') }}
                 </a>
