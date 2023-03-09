@@ -6,7 +6,7 @@
                 <div class="col-xxl-12">
                     <div class="footer__widgets">
                         <div class="widget__one">
-                            <img src="{{ asset('assets/imgs/logo/logo-purple.webp') }}" alt="Footer Logo"
+                            <img src="{{ asset('homepage/assets/imgs/logo/logo-purple.webp') }}" alt="Footer Logo"
                                 class="footer__logo" width="150">
                             <p>APKEVE is a seamless solution for uploading, downloading, extracting, and converting
                                 files with ease. With our
