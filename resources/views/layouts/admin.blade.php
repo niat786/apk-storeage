@@ -8,7 +8,7 @@
         @yield('content')
     </div>
 
-    @include('layouts.partials.footer')
+    @include('layouts.partials.general-footer')
     @livewireScripts()
 
 

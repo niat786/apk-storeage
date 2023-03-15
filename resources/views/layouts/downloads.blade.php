@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@include('layouts.partials.header')
+@include('layouts.partials.general-header')
 
 <body class="dark:bg-gray-800">
 
@@ -10,7 +10,8 @@
             <nav x-data="{ show_mobile_menu: false }" class=" px-2 z-50 shadow sm:px-4 py-2.5 bg-gray-900 fixed w-full  top-0 left-0 ">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
                     <a href="/" class="flex items-center text-white">
-                        <img width="150" src="{{ asset('APKeve-logo/logo.webp') }}" class="w-auto h-10 ml-3 mr-2 sm:h-9" alt="site Logo">
+                        <img width="150" src="{{ asset('APKeve-logo/logo.webp') }}"
+                            class="w-auto h-10 ml-3 mr-2 sm:h-9" alt="site Logo">
                     </a>
                     <div class="flex my-2 md:order-2">
 
@@ -66,8 +67,9 @@
         </main>
     </div>
 
-    @include('layouts.partials.footer')
+    @include('layouts.partials.general-footer')
     @livewireScripts()
 
 </body>
+
 </html>

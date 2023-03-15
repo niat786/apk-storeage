@@ -60,7 +60,7 @@
     </div>
 
     @stack('modals')
-    @include('layouts.partials.footer')
+    @include('layouts.partials.general-footer')
     @livewireScripts()
 
 </body>

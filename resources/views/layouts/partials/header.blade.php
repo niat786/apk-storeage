@@ -5,8 +5,8 @@
     <meta name="description" content="Banizzo HTML5 Template">
     <title>Boost Your Domain's File Sharing with APKEVE. The Ultimate Free File Upload and Download Link Generator.
     </title>
-    @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
+    {{-- @vite('resources/css/app.css') --}}
+    {{-- @vite('resources/js/app.js') --}}
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('homepage/assets/imgs/favicons/apple-icon-57x57.png') }}">
@@ -70,5 +70,7 @@
             color: transparent;
         }
     </style>
+    @include('scripts/analytics')
+
 
 </head>
